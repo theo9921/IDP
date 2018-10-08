@@ -1,3 +1,9 @@
+/*
+@author: T.T. Ouzounellis Kavlakonis (tto21@cam.ac.uk)
+Credits: CUED
+Date: 08 October 2018
+*/
+
 class robot_link {
 public:
 	//Construction/Destruction

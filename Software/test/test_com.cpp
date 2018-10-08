@@ -3,7 +3,7 @@ using namespace std;
 #include <robot_instr.h>
 #include <robot_link.h>
 
-#define ROBOT_NUM 33
+#define ROBOT_NUM 9
 robot_link rlink;
 
 int main()

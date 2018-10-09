@@ -15,7 +15,7 @@ robot_link rlink;
 int main()
 {
 	int val;
-	if (!rlink.initialize(ROBOT_NUM))
+	if (!rlink.initialise(ROBOT_NUM))
 	{
 		cout << "Cannot initialize link" << endl;
 		rlink.print_errs("	");

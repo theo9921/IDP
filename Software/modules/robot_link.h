@@ -10,10 +10,10 @@ public:
 	robot_link();
 	~robot_link();
 	//Initialization
-	bool initialize();	//Connect to local computer
-	bool initialize(int card);	//connect ot network card n
-	bool initialize(const char *host);	//connect to specified host
-	bool reinitialize();	//reconnect after error
+	bool initialise();	//Connect to local computer
+	bool initialise(int card);	//connect ot network card n
+	bool initialise(const char *host);	//connect to specified host
+	bool reinitialise();	//reconnect after error
 	bool command (commad_instruction cmd, int param);
 	int request (request_instruction)
 	//Error Handling

@@ -35,5 +35,5 @@ int main()
 	}
 	else
 		cout << "Test  failed (bad value returned)" << endl;
-	return -1 
+	return -1;
 }

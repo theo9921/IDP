@@ -16,7 +16,6 @@ stopwatch watch;
 
 int main()
 {
-	int val;
 	if (!rlink.initialise(ROBOT_NUM))
 	{
 		cout << "Cannot initialize link" << endl;
@@ -25,10 +24,31 @@ int main()
 	}
 	//Spin the motor
 	watch.start();
-	while(watch.read() <= 3000)
+	while(watch.read() <= 1500)
 	{
-		rlink.command(BOTH_MOTORS_GO_SAME, 60);
-		cout << "Spinning motor" << endl;
+		rlink.command(BOTH_MOTORS_GO_SAME, 70);
+		cout << "Turning left" << endl;
 	}
-	cout << "Stopped Spinning motor" << endl;
+	//restart watch
+	watch.start();
+	while(watch.read() <= 1000)
+	{
+		rlink.command(BOTH_MOTORS_GO_OPPOSITE, 198);
+		cout << "Going forwards" << endl;
+	}
+	cout << "Going back to initial position" << endl;
+	watch.start();
+	while(watch.read() <= 1500)
+	{
+		rlink.command(BOTH_MOTORS_GO_OPPOSITE, 70);
+		cout << "Going backwards" << endl;
+	}
+	//restart watch
+	watch.start();
+	while(watch.read() <= 1000)
+	{
+		rlink.command(BOTH_MOTORS_GO_SAME, 198);
+		cout << "Turning right" << endl;
+	}
+	cout << "Stopped Spinning motors" << endl;
 }

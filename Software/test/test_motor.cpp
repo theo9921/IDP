@@ -51,4 +51,5 @@ int main()
 		cout << "Turning right" << endl;
 	}
 	cout << "Stopped Spinning motors" << endl;
+	return -1;
 }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>9</integer>
+	<key>logs</key>
+	<dict>
+		<key>B5203F32-BD59-4367-9FA2-021500AE244E</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.target.product-type.tool</string>
+			<key>fileName</key>
+			<string>B5203F32-BD59-4367-9FA2-021500AE244E.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>signature</key>
+			<string>IDP_Playground-aybekrwxpqobnvdsytwnrlbnisid</string>
+			<key>timeStartedRecording</key>
+			<real>560944603.72454798</real>
+			<key>timeStoppedRecording</key>
+			<real>560944605.05358803</real>
+			<key>title</key>
+			<string>Build target IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>B5203F32-BD59-4367-9FA2-021500AE244E</string>
+		</dict>
+	</dict>
+	<key>preserveOldLogs</key>
+	<true/>
+</dict>
+</plist>

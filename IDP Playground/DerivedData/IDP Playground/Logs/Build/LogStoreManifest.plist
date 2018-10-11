@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>9</integer>
+	<key>logs</key>
+	<dict>
+		<key>083EB433-498A-44DF-85F4-5C6F67A6DE69</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>083EB433-498A-44DF-85F4-5C6F67A6DE69.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Build IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>560943983.31917405</real>
+			<key>timeStoppedRecording</key>
+			<real>560943984.01665998</real>
+			<key>title</key>
+			<string>Build IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>083EB433-498A-44DF-85F4-5C6F67A6DE69</string>
+		</dict>
+		<key>3031633A-5520-43F6-B8E5-A36FA222B985</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>3031633A-5520-43F6-B8E5-A36FA222B985.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Build IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>560942525.62027597</real>
+			<key>timeStoppedRecording</key>
+			<real>560942526.30048299</real>
+			<key>title</key>
+			<string>Build IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>3031633A-5520-43F6-B8E5-A36FA222B985</string>
+		</dict>
+		<key>5ECE8CF0-7D80-4C48-8783-B9E7D1E3157E</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>5ECE8CF0-7D80-4C48-8783-B9E7D1E3157E.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Build IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>560944134.09438002</real>
+			<key>timeStoppedRecording</key>
+			<real>560944134.81527901</real>
+			<key>title</key>
+			<string>Build IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>5ECE8CF0-7D80-4C48-8783-B9E7D1E3157E</string>
+		</dict>
+		<key>9EAFD62A-94A7-4795-BC7A-8BC5DB466F63</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>9EAFD62A-94A7-4795-BC7A-8BC5DB466F63.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Build IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>560944603.64068902</real>
+			<key>timeStoppedRecording</key>
+			<real>560944605.123106</real>
+			<key>title</key>
+			<string>Build IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>9EAFD62A-94A7-4795-BC7A-8BC5DB466F63</string>
+		</dict>
+		<key>A2B0A84D-6327-4FE8-AEA0-AD643455EB86</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>A2B0A84D-6327-4FE8-AEA0-AD643455EB86.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Build IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>560942475.43234801</real>
+			<key>timeStoppedRecording</key>
+			<real>560942476.22065401</real>
+			<key>title</key>
+			<string>Build IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>A2B0A84D-6327-4FE8-AEA0-AD643455EB86</string>
+		</dict>
+		<key>BD2742A1-5136-4CDD-987B-B1F60A789701</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>BD2742A1-5136-4CDD-987B-B1F60A789701.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Build IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>560942445.89399505</real>
+			<key>timeStoppedRecording</key>
+			<real>560942452.66291499</real>
+			<key>title</key>
+			<string>Build IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>BD2742A1-5136-4CDD-987B-B1F60A789701</string>
+		</dict>
+		<key>DFCA4579-113E-4057-862D-EA8BFAD5E5A1</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>DFCA4579-113E-4057-862D-EA8BFAD5E5A1.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Build IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>560943272.38942897</real>
+			<key>timeStoppedRecording</key>
+			<real>560943273.83978605</real>
+			<key>title</key>
+			<string>Build IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>DFCA4579-113E-4057-862D-EA8BFAD5E5A1</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -53,7 +53,7 @@ int main()
 		return -1;	
 	}
 	
-	watch.start();
+	testwatch.start();
 	while(testwatch.read()<=test_time*1000)
 	{
 		//read the 3 line following sensors and store the values

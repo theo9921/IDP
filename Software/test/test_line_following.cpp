@@ -12,7 +12,8 @@ using namespace std;
 
 #define ROBOT_NUM 9
 robot_link rlink;
-stopwatch watch;
+stopwatch testwatch;
+stopwatch motorwatch;
 
 //duration of test in seconds
 int test_time = 15;
@@ -31,14 +32,14 @@ bool sens1=0, sens2=0, sens3=0;
 	110=6 --> wwb
 	111=7 --> www
 */
-#define LFstate_bbb 0
-#define LFstate_bbw 1
-#define LFstate_bwb 2
-#define LFstate_bww 3
-#define LFstate_wbb 4
-#define LFstate_wbw 5
-#define LFstate_wwb 6
-#define LFstate_www 7
+#define LFSTATE_BBB 0
+#define LFSTATE_BBW 1
+#define LFSTATE_BWB 2
+#define LFSTATE_BWW 3
+#define LFSTATE_WBB 4
+#define LFSTATE_WBW 5
+#define LFSTATE_WWB 6
+#define LFSTATE_WWW 7
 
 //create a variable to hold the state of the system
 int state;
@@ -53,7 +54,7 @@ int main()
 	}
 	
 	watch.start();
-	while(watch.read()<=test_time*1000)
+	while(testwatch.read()<=test_time*1000)
 	{
 		//read the 3 line following sensors and store the values
 		sens1 = rlink.request(READ_PORT_0);
@@ -64,22 +65,22 @@ int main()
 		state = ((((sens1<<1)|sens2))<<1)|sens3;
 		cout << state << endl;
 		
-		if(state==LFstate_bwb)
+		if(state==LFSTATE_BWB)
 		{
 			//move forwards
 			rlink.command(BOTH_MOTORS_GO_OPPOSITE, 198);
 		}
-		else if(state==LFstate_bbw)
+		else if(state==LFSTATE_BBW)
 		{
 			//turn a bit to the right
 			rlink.command(BOTH_MOTORS_GO_SAME, 198);
 		}
-		else if(state==LFstate_wbb)
+		else if(state==LFSTATE_WBB)
 		{
 			//turn a bit to the left
 			rlink.command(BOTH_MOTORS_GO_SAME, 70);
 		}
-		else 
+		else
 		{
 			cout << "I dont't know what to do. PANIC MODE ACTIVATED! " << endl;
 		}

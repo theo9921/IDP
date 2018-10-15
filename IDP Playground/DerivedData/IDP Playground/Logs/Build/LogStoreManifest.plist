@@ -35,6 +35,35 @@
 			<key>uniqueIdentifier</key>
 			<string>4FDDDD52-49CC-4116-9F38-FFFA5CCE5D25</string>
 		</dict>
+		<key>650A3878-1033-46A5-BFAC-AC11009F0B4D</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>650A3878-1033-46A5-BFAC-AC11009F0B4D.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Build IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561298000.617504</real>
+			<key>timeStoppedRecording</key>
+			<real>561298001.32998002</real>
+			<key>title</key>
+			<string>Build IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>650A3878-1033-46A5-BFAC-AC11009F0B4D</string>
+		</dict>
 		<key>9EAFD62A-94A7-4795-BC7A-8BC5DB466F63</key>
 		<dict>
 			<key>className</key>
@@ -63,6 +92,35 @@
 			<string>Build IDP Playground</string>
 			<key>uniqueIdentifier</key>
 			<string>9EAFD62A-94A7-4795-BC7A-8BC5DB466F63</string>
+		</dict>
+		<key>D37AB96C-8FA8-4E17-BA8C-DC8BE59C191D</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>D37AB96C-8FA8-4E17-BA8C-DC8BE59C191D.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>W</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Build IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561297926.35874295</real>
+			<key>timeStoppedRecording</key>
+			<real>561297927.36400199</real>
+			<key>title</key>
+			<string>Build IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>D37AB96C-8FA8-4E17-BA8C-DC8BE59C191D</string>
 		</dict>
 	</dict>
 </dict>

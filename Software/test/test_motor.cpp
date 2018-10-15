@@ -22,33 +22,37 @@ int main()
 		rlink.print_errs("	");
 		return -1;	
 	}
-	//Spin the motor
+	//Turn to the left
 	watch.start();
+	cout << "Turning left" << endl;
 	while(watch.read() <= 1500)
 	{
 		rlink.command(BOTH_MOTORS_GO_SAME, 70);
-		cout << "Turning left" << endl;
 	}
-	//restart watch
+
+	//Go forwards
 	watch.start();
+	cout << "Going forwards" << endl;
 	while(watch.read() <= 1000)
 	{
 		rlink.command(BOTH_MOTORS_GO_OPPOSITE, 198);
-		cout << "Going forwards" << endl;
 	}
 	cout << "Going back to initial position" << endl;
+
+	//go backward
 	watch.start();
+	cout << "Going backwards" << endl;
 	while(watch.read() <= 1500)
 	{
 		rlink.command(BOTH_MOTORS_GO_OPPOSITE, 70);
-		cout << "Going backwards" << endl;
 	}
-	//restart watch
+
+	//Turn to the right
 	watch.start();
+	cout << "Turning right" << endl;
 	while(watch.read() <= 1000)
 	{
 		rlink.command(BOTH_MOTORS_GO_SAME, 198);
-		cout << "Turning right" << endl;
 	}
 	cout << "Stopped Spinning motors" << endl;
 	return -1;

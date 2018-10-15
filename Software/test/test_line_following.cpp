@@ -15,13 +15,11 @@ robot_link rlink;
 stopwatch testwatch;
 stopwatch motorwatch;
 
-//duration of test in seconds
-int test_time = 15;
-
-//Define boolean variables (0/1) to hold the readings of the 3 line following sensors
-bool sens1=0, sens2=0, sens3=0;
-
-//states of the line following sensors for reference
+/*
+	MOTOR_2 is left wheel 
+	MOTOR_1 is right wheel (needs reverse to go forward)
+*/
+//states of the line following sensors for reference (first 3 bits of the output)
 /*
 	000=0 --> bbb
 	001=1 --> bbw
@@ -32,16 +30,27 @@ bool sens1=0, sens2=0, sens3=0;
 	110=6 --> wwb
 	111=7 --> www
 */
-#define LFSTATE_BBB 0
-#define LFSTATE_BBW 1
-#define LFSTATE_BWB 2
-#define LFSTATE_BWW 3
-#define LFSTATE_WBB 4
-#define LFSTATE_WBW 5
-#define LFSTATE_WWB 6
-#define LFSTATE_WWW 7
+#define LFSTATE_BBB 240 //11110000
+#define LFSTATE_BBW 241 //11110001
+#define LFSTATE_BWB 242 //11110010
+#define LFSTATE_BWW 243 //11110011
+#define LFSTATE_WBB 244 //11110100
+#define LFSTATE_WBW 245 //11110101
+#define LFSTATE_WWB 246 //11110110
+#define LFSTATE_WWW 257 //11110111
 
-//create a variable to hold the state of the system
+//number between 0 and 127 (128-255 for reverse)
+#define DEFAULT_SPEED 40
+//above that direction of motors will be reversed
+#define REVERSE_STHRES 128
+
+//duration of test in seconds
+int test_time = 20;
+
+//Define boolean variables (0/1) to hold the readings of the 3 line following sensors
+bool sens1=0, sens2=0, sens3=0;
+
+//8-bit number with 3 LSB's being the sensors
 int state;
 
 int main()
@@ -56,34 +65,33 @@ int main()
 	testwatch.start();
 	while(testwatch.read()<=test_time*1000)
 	{
-		//read the 3 line following sensors and store the values
-		sens1 = rlink.request(READ_PORT_0);
-		sens2 = rlink.request(READ_PORT_1);
-		sens3 = rlink.request(READ_PORT_2);
-		
-		//create a variable state to hold the three readings
-		state = ((((sens1<<1)|sens2))<<1)|sens3;
-		cout << state << endl;
+		//read the output from the chip
+		state = rlink.request(READ_PORT_5);
 		
 		if(state==LFSTATE_BWB)
 		{
 			//move forwards
-			rlink.command(BOTH_MOTORS_GO_OPPOSITE, 198);
+			rlink.command(BOTH_MOTORS_GO_OPPOSITE, REVERSE_STHRES+DEFAULT_SPEED);
 		}
 		else if(state==LFSTATE_BBW)
 		{
 			//turn a bit to the right
-			rlink.command(BOTH_MOTORS_GO_SAME, 198);
+			//speed down the left wheel
+			rlink.command(MOTOR_1_GO, REVERSE_STHRES + DEFAULT_SPEED);
+			rlink.command(MOTOR_2_GO, DEFAULT_SPEED*0.5);
 		}
 		else if(state==LFSTATE_WBB)
 		{
 			//turn a bit to the left
-			rlink.command(BOTH_MOTORS_GO_SAME, 70);
+			//speed down right wheel
+			rlink.command(MOTOR_1_GO, REVERSE_STHRES+DEFAULT_SPEED*0.5);
+			rlink.command(MOTOR_2_GO, DEFAULT_SPEED);
 		}
 		else
 		{
-			cout << "I dont't know what to do. PANIC MODE ACTIVATED! " << endl;
+			//cout << "I dont't know what to do. PANIC MODE ACTIVATED! " << endl;
 		}
+		
 	}
 	return 0;
 }

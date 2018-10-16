@@ -40,12 +40,12 @@ stopwatch motorwatch;
 #define LFSTATE_WWW 257 //11110111
 
 //number between 0 and 127 (128-255 for reverse)
-#define DEFAULT_SPEED 40
+#define DEFAULT_SPEED 25
 //above that direction of motors will be reversed
 #define REVERSE_STHRES 128
 
 //duration of test in seconds
-int test_time = 20;
+int test_time = 30;
 
 //Define boolean variables (0/1) to hold the readings of the 3 line following sensors
 bool sens1=0, sens2=0, sens3=0;
@@ -67,30 +67,48 @@ int main()
 	{
 		//read the output from the chip
 		state = rlink.request(READ_PORT_5);
-		
+		//move forwards
+		rlink.command(BOTH_MOTORS_GO_OPPOSITE, REVERSE_STHRES+DEFAULT_SPEED);
+		/*
 		if(state==LFSTATE_BWB)
 		{
 			//move forwards
 			rlink.command(BOTH_MOTORS_GO_OPPOSITE, REVERSE_STHRES+DEFAULT_SPEED);
 		}
-		else if(state==LFSTATE_BBW)
+		else if(state==LFSTATE_BBW || state==LFSTATE_BWW)
 		{
 			//turn a bit to the right
 			//speed down the left wheel
 			rlink.command(MOTOR_1_GO, REVERSE_STHRES + DEFAULT_SPEED);
-			rlink.command(MOTOR_2_GO, DEFAULT_SPEED*0.5);
+			rlink.command(MOTOR_2_GO, DEFAULT_SPEED*0.8);
 		}
-		else if(state==LFSTATE_WBB)
+		else if(state==LFSTATE_WBB || state==LFSTATE_WWB)
 		{
 			//turn a bit to the left
 			//speed down right wheel
-			rlink.command(MOTOR_1_GO, REVERSE_STHRES+DEFAULT_SPEED*0.5);
+			rlink.command(MOTOR_1_GO, REVERSE_STHRES+DEFAULT_SPEED*0.8);
 			rlink.command(MOTOR_2_GO, DEFAULT_SPEED);
+		}
+		else if(state==LFSTATE_WWW)
+		{
+			//turn left
+			motorwatch.start();
+			while(motorwatch.read()<= 1500)
+			{
+				rlink.command(BOTH_MOTORS_GO_SAME, DEFAULT_SPEED);
+			}
 		}
 		else
 		{
-			//cout << "I dont't know what to do. PANIC MODE ACTIVATED! " << endl;
+			cout << "I dont't know what to do. PANIC MODE ACTIVATED! " << endl;
+			motorwatch.start();
+			while(motorwatch.read()<= 1000 && state==LFSTATE_BBB)
+			{
+				rlink.command(BOTH_MOTORS_GO_OPPOSITE, DEFAULT_SPEED);
+			}
+			
 		}
+		*/
 		
 	}
 	return 0;

@@ -67,9 +67,7 @@ int main()
 	{
 		//read the output from the chip
 		state = rlink.request(READ_PORT_5);
-		//move forwards
-		rlink.command(BOTH_MOTORS_GO_OPPOSITE, REVERSE_STHRES+DEFAULT_SPEED);
-		/*
+		
 		if(state==LFSTATE_BWB)
 		{
 			//move forwards
@@ -108,7 +106,7 @@ int main()
 			}
 			
 		}
-		*/
+		
 		
 	}
 	return 0;

@@ -79,33 +79,37 @@ void turnLeftXD()
 {
 	// turn left by calibrating the turning process real time
 	cout << "Turning" << endl;
-	float leftSpeed0 = REVERSE_STHRES+DEFAULT_SPEED*0.5;
-	float rightSpeed0 = DEFAULT_SPEED;
-	float leftSpeed1 = leftSpeed;
-	float rightSpeed1 = rightSpeed;
+	float leftSpeed = REVERSE_STHRES+DEFAULT_SPEED*0.5;
+	float rightSpeed = DEFAULT_SPEED;
 	while(true){
 		if(state==LFSTATE_WWW){ // it is in the initial state of the turning
 			rlink.command(MOTOR_LEFT_GO, leftSpeed);
 			rlink.command(MOTOR_RIGHT_GO, rightSpeed);
 		}
-		else if(state==LFSTATE_BWW){ // it is normal to see this
+		else if(state==LFSTATE_BWW){ // turn slightly slower
+			leftSpeed += DEFAULT_SPEED*0.025;
 			rlink.command(MOTOR_LEFT_GO, leftSpeed);
 			rlink.command(MOTOR_RIGHT_GO, rightSpeed);
 		}
-		else if(state==LFSTATE_BBW){ // turn slower
+		else if(state==LFSTATE_BBW){ // turn much slower
+			leftSpeed += DEFAULT_SPEED*0.05;
 			rlink.command(MOTOR_LEFT_GO, leftSpeed+DEFAULT_SPEED*0.1);
 			rlink.command(MOTOR_RIGHT_GO, rightSpeed);
 		}
 		else if(state==LFSTATE_WWB){ // turn harder
+			leftSpeed -= DEFAULT_SPEED*0.025;
 			rlink.command(MOTOR_LEFT_GO, leftSpeed-DEFAULT_SPEED*0.1);
 			rlink.command(MOTOR_RIGHT_GO, rightSpeed);
 		}
 		else if(state==LFSTATE_WBB){ // turn super hard
+			leftSpeed -= DEFAULT_SPEED*0.05;
 			rlink.command(MOTOR_LEFT_GO, leftSpeed-DEFAULT_SPEED*0.2);
 			rlink.command(MOTOR_RIGHT_GO, rightSpeed);
 		}
-		
-		
+		else if(state==LFSTATE_BWB || leftSpeed >= REVERSE_STHRES+DEFAULT_SPEED*0.5){
+			// then the turning is over
+			break;
+		}
 	}
 }
 

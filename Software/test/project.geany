@@ -1,13 +1,14 @@
 [project]
-name=test_line_following
-base_path=/homes/tto21/idp_shared/tto21/IDP/Software/test
+name=test_displayLEDs
+base_path=/homes/xw338/IDP/Software/test
 make_in_base_path=true
 description=1B IDP
-run_cmd=./test_line_following
+run_cmd=./test_displayLEDs
 
 [files]
 current_page=0
-FILE_NAME_0=1223;C++;0;EUTF-8;1;1;0;%2Fhomes%2Ftto21%2Fidp_shared%2Ftto21%2FIDP%2FSoftware%2Ftest%2Ftest_line_following.cpp;0;4
+FILE_NAME_0=430;C++;0;EUTF-8;1;1;0;%2Fhomes%2Fxw338%2FIDP%2FSoftware%2Ftest%2Ftest_displayLEDs.cpp;0;4
+FILE_NAME_1=1559;C++;0;EUTF-8;1;1;0;%2Fhomes%2Fxw338%2FIDP%2FSoftware%2Ftest%2Ftest_line_following.cpp;0;4
 
 [indentation]
 indent_width=4
@@ -33,4 +34,4 @@ long_line_behaviour=1
 long_line_column=72
 
 [VTE]
-last_dir=/homes/tto21
+last_dir=/homes/xw338

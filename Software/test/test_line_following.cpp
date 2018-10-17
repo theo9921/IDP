@@ -44,21 +44,12 @@ stopwatch motorwatch;
 #define LFSTATE_WWW 247 //11110111
 
 //number between 0 and 127 (128-255 for reverse)
-<<<<<<< HEAD
 #define DEFAULT_SPEED 40
-=======
-#define DEFAULT_SPEED 25
-
->>>>>>> db5427c48027de3373530f4855ff2c59628dee72
 //above that direction of motors will be reversed
 #define REVERSE_STHRES 128
 
 //duration of test in seconds
-<<<<<<< HEAD
 int test_time = 40;
-=======
-int test_time = 100;
->>>>>>> db5427c48027de3373530f4855ff2c59628dee72
 
 //Define boolean variables (0/1) to hold the readings of the 3 line following sensors
 bool sens1=0, sens2=0, sens3=0;
@@ -66,9 +57,56 @@ bool sens1=0, sens2=0, sens3=0;
 //8-bit number with 3 LSB's being the sensors
 int state;
 
-void turnLeft()
+void turnLeftTT()
 {
+	//turn left by moving forward a bit first
+	motorwatch.start();
+	cout << "Turning" << endl;
+	while(true)
+	{
+		while(motorwatch.read()<=4650)
+		{
+			rlink.command(BOTH_MOTORS_GO_OPPOSITE, DEFAULT_SPEED);
+		}
+		rlink.command(BOTH_MOTORS_GO_SAME, 60);
+		//read the output from the chip
+		state = rlink.request(READ_PORT_5);
+		if(state==LFSTATE_WBB) break;
+	}
+}
 
+void turnLeftXD()
+{
+	// turn left by calibrating the turning process real time
+	cout << "Turning" << endl;
+	float leftSpeed0 = REVERSE_STHRES+DEFAULT_SPEED*0.5;
+	float rightSpeed0 = DEFAULT_SPEED;
+	float leftSpeed1 = leftSpeed;
+	float rightSpeed1 = rightSpeed;
+	while(true){
+		if(state==LFSTATE_WWW){ // it is in the initial state of the turning
+			rlink.command(MOTOR_LEFT_GO, leftSpeed);
+			rlink.command(MOTOR_RIGHT_GO, rightSpeed);
+		}
+		else if(state==LFSTATE_BWW){ // it is normal to see this
+			rlink.command(MOTOR_LEFT_GO, leftSpeed);
+			rlink.command(MOTOR_RIGHT_GO, rightSpeed);
+		}
+		else if(state==LFSTATE_BBW){ // turn slower
+			rlink.command(MOTOR_LEFT_GO, leftSpeed+DEFAULT_SPEED*0.1);
+			rlink.command(MOTOR_RIGHT_GO, rightSpeed);
+		}
+		else if(state==LFSTATE_WWB){ // turn harder
+			rlink.command(MOTOR_LEFT_GO, leftSpeed-DEFAULT_SPEED*0.1);
+			rlink.command(MOTOR_RIGHT_GO, rightSpeed);
+		}
+		else if(state==LFSTATE_WBB){ // turn super hard
+			rlink.command(MOTOR_LEFT_GO, leftSpeed-DEFAULT_SPEED*0.2);
+			rlink.command(MOTOR_RIGHT_GO, rightSpeed);
+		}
+		
+		
+	}
 }
 
 int main()
@@ -78,30 +116,21 @@ int main()
 		rlink.print_errs("	");
 		return -1;	
 	}
-	else{
-		cout << "connection built" << endl;
-	}
 	
 	testwatch.start();
 	while(testwatch.read()<=test_time*1000)
 	{
-		cout << "one loop" << endl;
 		//read the output from the chip
 		state = rlink.request(READ_PORT_5);
 		if(state==LFSTATE_BWB)
 		{
-<<<<<<< HEAD
 			//move forwards
-=======
-			//move forward
->>>>>>> db5427c48027de3373530f4855ff2c59628dee72
 			rlink.command(BOTH_MOTORS_GO_OPPOSITE, DEFAULT_SPEED);
 		}
 		else if(state==LFSTATE_BBW || state==LFSTATE_BWW)
 		{
 			//turn a bit to the right
 			//speed down the left wheel
-<<<<<<< HEAD
 			rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES + DEFAULT_SPEED);
 			rlink.command(MOTOR_RIGHT_GO, DEFAULT_SPEED*0.8);
 		}
@@ -111,54 +140,22 @@ int main()
 			//speed down right wheel
 			rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES+DEFAULT_SPEED*0.8);
 			rlink.command(MOTOR_RIGHT_GO, DEFAULT_SPEED);
-=======
-			rlink.command(MOTOR_1_GO, REVERSE_STHRES + DEFAULT_SPEED);
-			rlink.command(MOTOR_2_GO, DEFAULT_SPEED*0.6);
->>>>>>> db5427c48027de3373530f4855ff2c59628dee72
 		}
 		else if(state==LFSTATE_WBB)
 		{
 			//turn a bit to the left
 			//speed down right wheel
-<<<<<<< HEAD
 			rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES+DEFAULT_SPEED*0.65);
 			rlink.command(MOTOR_RIGHT_GO, DEFAULT_SPEED);
-=======
-			rlink.command(MOTOR_1_GO, REVERSE_STHRES+DEFAULT_SPEED*0.6);
-			rlink.command(MOTOR_2_GO, DEFAULT_SPEED);
->>>>>>> db5427c48027de3373530f4855ff2c59628dee72
 		}
 		else if(state==LFSTATE_WWW)
 		{
-			//turn left
-			motorwatch.start();
-<<<<<<< HEAD
-			cout << "Turning" << endl;
-			while(true)
-			{
-				while(motorwatch.read()<=4650)
-				{
-					rlink.command(BOTH_MOTORS_GO_OPPOSITE, DEFAULT_SPEED);
-					
-				}
-				rlink.command(BOTH_MOTORS_GO_SAME, 60);
-				//read the output from the chip
-				state = rlink.request(READ_PORT_5);
-				if(state==LFSTATE_WBB) break;
-=======
-			while(motorwatch.read()<= 3000)
-			{
-				//rlink.command(BOTH_MOTORS_GO_SAME, DEFAULT_SPEED);
-				rlink.command(MOTOR_1_GO, REVERSE_STHRES+DEFAULT_SPEED*0.5);
-				rlink.command(MOTOR_2_GO, DEFAULT_SPEED);
-				cout << "Turning robot" << endl;
->>>>>>> db5427c48027de3373530f4855ff2c59628dee72
-			}
+			turnLeftTT()
 		}
 		else
 		{
 			motorwatch.start();
-			while(motorwatch.read()<= 10000 && state==LFSTATE_BBB)
+			while(motorwatch.read()<= 1000 && state==LFSTATE_BBB)
 			{
 				rlink.command(BOTH_MOTORS_GO_OPPOSITE, REVERSE_STHRES + DEFAULT_SPEED);
 			}
@@ -169,3 +166,6 @@ int main()
 	}
 	return 0;
 }
+
+
+

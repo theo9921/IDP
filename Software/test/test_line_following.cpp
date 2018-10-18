@@ -75,6 +75,24 @@ void turnLeftTT()
 	}
 }
 
+void turnRight()
+{
+	//turn left by moving forward a bit first
+	motorwatch.start();
+	cout << "Turning Right" << endl;
+	while(true)
+	{
+		while(motorwatch.read()<=4650)
+		{
+			rlink.command(BOTH_MOTORS_GO_OPPOSITE, DEFAULT_SPEED);
+		}
+		rlink.command(BOTH_MOTORS_GO_SAME, REVERSE_STHRES + TURNING_SPEED);
+		//read the output from the chip
+		state = rlink.request(READ_PORT_5);
+		if(state==LFSTATE_BBW) break;
+	}
+}
+
 void turnLeftXD()
 {
 	// turn left by calibrating the turning process real time
@@ -154,7 +172,7 @@ int main()
 		}
 		else if(state==LFSTATE_WWW)
 		{
-			turnLeftTT();
+			turnRight();
 			// turnLeftXD();
 		}
 		else

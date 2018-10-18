@@ -154,7 +154,8 @@ int main()
 		}
 		else if(state==LFSTATE_WWW)
 		{
-			turnLeftTT()
+			turnLeftTT();
+			// turnLeftXD();
 		}
 		else
 		{

@@ -16,11 +16,10 @@ stopwatch timer;
 
 int main()
 {
-	timer.start();
-	while(timer.read()<=10000)
+	if (!rlink.initialise(ROBOT_NUM))
 	{
-		int state = rlink.request(READ_PORT_5);
-		cout << state << endl;
+		rlink.print_errs("	");
+		return -1;	
 	}
-	
+	rlink.command(WRITE_PORT_5, 0b11100000);
 }

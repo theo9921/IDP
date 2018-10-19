@@ -17,11 +17,13 @@ using namespace std;
 
 
 //duration of test in seconds
-int test_time = 40;
+int test_time = 600;
 
 //Define boolean variables (0/1) to hold the readings of the 3 line following sensors
 bool sens1=0, sens2=0, sens3=0;
 
+int nCrosses[4] = {1, 0, 1, 0};
+int nTurn = 0;
 
 int main()
 {
@@ -36,49 +38,10 @@ int main()
 	{
 		//read the output from the chip
 		state = rlink.request(READ_PORT_5);
-		if(state==LFSTATE_BWB)
-		{
-			//move forwards
-			rlink.command(BOTH_MOTORS_GO_OPPOSITE, DEFAULT_SPEED);
-		}
-		else if(state==LFSTATE_BBW || state==LFSTATE_BWW)
-		{
-			//turn a bit to the right
-			//speed down the left wheel
-			rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES + DEFAULT_SPEED);
-			rlink.command(MOTOR_RIGHT_GO, DEFAULT_SPEED*0.8);
-		}
-		else if(state==LFSTATE_WWB)
-		{
-			//turn a bit to the left
-			//speed down right wheel
-			rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES+DEFAULT_SPEED*0.8);
-			rlink.command(MOTOR_RIGHT_GO, DEFAULT_SPEED);
-		}
-		else if(state==LFSTATE_WBB)
-		{
-			//turn a bit to the left
-			//speed down right wheel
-			rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES+DEFAULT_SPEED*0.65);
-			rlink.command(MOTOR_RIGHT_GO, DEFAULT_SPEED);
-		}
-		else if(state==LFSTATE_WWW)
-		{
-			//turnRight();
-			//turnLeft();
-			turnLeftTmp();
-		}
-		else
-		{
-			motorwatch.start();
-			while(motorwatch.read()<= 1000 && state==LFSTATE_BBB)
-			{
-				rlink.command(BOTH_MOTORS_GO_OPPOSITE, REVERSE_STHRES + DEFAULT_SPEED);
-			}
-			
-		}
-		
-		
+		moveStraight(-1, false);
+		//turn left and be sure to ignore 1 line crossing
+		turnLeft(nCrosses[nTurn%4]);
+		nTurn++;
 	}
 	return 0;
 }

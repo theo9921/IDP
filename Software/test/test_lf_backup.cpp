@@ -14,8 +14,7 @@ using namespace std;
 	MOTOR_1 is left wheel (needs reverse to go forward)
 */
 
-#define MOTOR_LEFT_GO MOTOR_2_GO
-#define MOTOR_RIGHT_GO MOTOR_1_GO
+
 
 //duration of test in seconds
 int test_time = 40;
@@ -65,8 +64,9 @@ int main()
 		}
 		else if(state==LFSTATE_WWW)
 		{
-			turnRight();
-			turnLeft();
+			//turnRight();
+			//turnLeft();
+			turnLeftTmp();
 		}
 		else
 		{

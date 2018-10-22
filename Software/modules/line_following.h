@@ -4,10 +4,17 @@
 *	Project: Part 1B Engineering Tripos Integrated Design Project
 */
 
+/*
+ * This header file holds all the functions needed for line following. Those include two different
+ * sets of turn left and turn right functions (one set rotates both wheels and the other keeps one
+ * of them stationary and rotates the other one) and one move straight functions which includes
+ * parameters for controlling (if wanted) the time to move forward and whether or not to ignore lines.
+ * A demonstation of all those function is implemented in the test_line_following file in the "test" folder. 
+ */
+
+
+#include <parameters.h>
 #include <iostream>
-#include <robot_instr.h>
-#include <robot_link.h>
-#include <stopwatch.h>
 
 using namespace std;
 

@@ -4,6 +4,10 @@
 *	Project: Part 1B Engineering Tripos Integrated Design Project
 */
 
+#include <robot_instr.h>
+#include <robot_link.h>
+#include <stopwatch.h>
+
 #define ROBOT_NUM 9
 
 //number between 0 and 127 (128-255 for reverse)

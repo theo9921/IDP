@@ -35,6 +35,7 @@ stopwatch motorwatch;
 #define LFSTATE_WWB 246 //11110110
 #define LFSTATE_WWW 247 //11110111
 
+//define the default motor turning speed
 #define TURNING_SPEED 60
 #define MOTOR_LEFT_GO MOTOR_2_GO
 #define MOTOR_RIGHT_GO MOTOR_1_GO
@@ -94,40 +95,27 @@ void moveStraight(int timeLen, bool skipCorners)
 		}
 		else
 		{
+			//go backwards until it reaches a known state
 			rlink.command(BOTH_MOTORS_GO_OPPOSITE, REVERSE_STHRES + DEFAULT_SPEED);
 		}
 	}
 }
 
-void turnLeftBackup()
-{
-	//turn left by moving forward a bit first
-	motorwatch.start();
-	cout << "Turning Left" << endl;
-	while(true)
-	{
-		while(motorwatch.read()<=4650)
-		{
-			rlink.command(BOTH_MOTORS_GO_OPPOSITE, DEFAULT_SPEED);
-		}
-		rlink.command(BOTH_MOTORS_GO_SAME, TURNING_SPEED);
-		//read the output from the chip
-		state = rlink.request(READ_PORT_5);
-		if(state==LFSTATE_WBB) break;
-	}
-}
-
+//turn left by making a wider turn and by going half way pass the junction
 void turnLeft(int nCross)
 {
 	motorwatch.start();
 	cout << "Turning Left" << endl;
 	int prevState;
 	int nWWB = 0;
+	//move straight until robots centre is at the junction
 	moveStraight(2300, true);
+	
+	//turn to the left while ignoring as many lines as necessary until it aligns with the line
 	while(true)
 	{
 		rlink.command(MOTOR_LEFT_GO, 0);
-		rlink.command(MOTOR_RIGHT_GO, 60);
+		rlink.command(MOTOR_RIGHT_GO, TURNING_SPEED);
 		//read the output from the chip
 		state = rlink.request(READ_PORT_5);
 		if(state==LFSTATE_WWB && prevState != state)
@@ -140,11 +128,58 @@ void turnLeft(int nCross)
 	}
 }
 
+//turn right by making a wider turn and by going half way pass the junction
+void turnRight(int nCross)
+{
+	motorwatch.start();
+	cout << "Turning Left" << endl;
+	int prevState;
+	int nWWB = 0;
+	//move straight until robots centre is at the junction
+	moveStraight(2300, true);
+	
+	//turn to the right while ignoring as many lines as necessary until it aligns with the line
+	while(true)
+	{
+		rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES + TURNING_SPEED);
+		rlink.command(MOTOR_RIGHT_GO, 0);
+		//read the output from the chip
+		state = rlink.request(READ_PORT_5);
+		if(state==LFSTATE_WWB && prevState != state)
+		{
+			nWWB++; 
+		}
+		if(nWWB > nCross) 
+			break;
+		prevState = state;
+	}
+}
 
-
-void turnRight()
+//Turning left by aligning wheels with the junction and rotating
+void turnLeftBackup()
 {
 	//turn left by moving forward a bit first
+	motorwatch.start();
+	cout << "Turning Left" << endl;
+	while(true)
+	{
+		//go forwards until wheels align with junction
+		while(motorwatch.read()<=4650)
+		{
+			rlink.command(BOTH_MOTORS_GO_OPPOSITE, DEFAULT_SPEED);
+		}
+		//rotate until the sensors read the BWB state (i.e aligned with line)
+		rlink.command(BOTH_MOTORS_GO_SAME, TURNING_SPEED);
+		//read the output from the chip
+		state = rlink.request(READ_PORT_5);
+		if(state==LFSTATE_WBB) break;
+	}
+}
+
+//Turning right by aligning wheels with the junction and rotating
+void turnRighBackup()
+{
+	//turn right by moving forward a bit first
 	motorwatch.start();
 	cout << "Turning Right" << endl;
 	while(true)

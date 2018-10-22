@@ -23,47 +23,54 @@ struct node{
     int upDis;
     int downDis;
 //
-//    node(int const id, bool const isWall):
-//        id(id), isWall(isWall){};
+    node():
+        isWall(false), left(NULL), right(NULL), up(NULL), down(NULL){};
 };
 
-void enrichMap(node* nodes){
+node* enrichMap(node* nodes){
     for(int i=0; i<NODE_NUM; i++){
-        if(nodes[i].left){
-            if(nodes[i].left->right)
-                nodes[i].left->right = nodes+i;
-            else if(nodes[i].left->right != nodes+i)
-                cout << "nodes " << i << " has false spactial definition" << endl;
+        node* thisNode = nodes + i;
+        if(thisNode->left){
+            if(!thisNode->left->right)
+                thisNode->left->right = thisNode;
         }
         
-        if(nodes[i].right){
-            if(nodes[i].right->left)
-                nodes[i].right->left = nodes+i;
-            else if(nodes[i].right->left != nodes+i)
-                cout << "nodes " << i << " has false spactial definition" << endl;
+        if(thisNode->right){
+            if(!thisNode->right->left)
+                thisNode->right->left = thisNode;
         }
         
-        if(nodes[i].up){
-            if(nodes[i].up->down)
-                nodes[i].up->down = nodes+i;
-            else if(nodes[i].up->down != nodes+i)
-                cout << "nodes " << i << " has false spactial definition" << endl;
+        if(thisNode->up){
+            if(!thisNode->up->down)
+                thisNode->up->down = thisNode;
         }
         
         if(nodes[i].down){
-            if(nodes[i].down->up)
-                nodes[i].down->up = nodes+i;
-            else if(nodes[i].down->up != nodes+i)
-                cout << "nodes " << i << " has false spactial definition" << endl;
+            if(!thisNode->down->up)
+                thisNode->down->up = thisNode;
         }
     }
+    
+    // sanity check
+    node* dbug = nodes+32;
+    for(int i=0; i<NODE_NUM; i++){
+        node* thisNode = nodes + i;
+        if(thisNode->left && thisNode->left->right != thisNode)
+            cout << "nodes " << i << " left right false" << endl;
+        if(thisNode->right && thisNode->right->left != thisNode)
+            cout << "nodes " << i << " right left false" << endl;
+        if(thisNode->up && thisNode->up->down != thisNode)
+            cout << "nodes " << i << " up down false" << endl;
+        if(thisNode->down && thisNode->down->up != thisNode)
+            cout << "nodes " << i << " down up false" << endl;
+    }
+    return nodes;
 }
 
 
 node* createMap(){
     // initialize the node array
-    node nodes[NODE_NUM];
-    
+    node* nodes = new node[NODE_NUM];
     for(int i=0; i<NODE_NUM; i++){
         nodes[i].id = i;
     }
@@ -119,12 +126,11 @@ node* createMap(){
     nodes[22].down =  nodes+26;
     nodes[27].right =  nodes+26;
     nodes[27].down =  nodes+31;
-    nodes[27].right =  nodes+26;
+    nodes[26].down =  nodes+30;
     nodes[31].right =  nodes+30;
     
     // enrich the manully labelled map
-    enrichMap(nodes);
-    return nodes;
+    return enrichMap(nodes);
 }
 
 int main(){

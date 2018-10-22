@@ -6,7 +6,7 @@
 	<integer>9</integer>
 	<key>logs</key>
 	<dict>
-		<key>39D777E9-D14F-4FB2-9169-4B30852501BF</key>
+		<key>27B425CE-E15D-4D02-8193-C106B9C92C97</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -15,19 +15,19 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.target.product-type.tool</string>
 			<key>fileName</key>
-			<string>39D777E9-D14F-4FB2-9169-4B30852501BF.xcactivitylog</string>
+			<string>27B425CE-E15D-4D02-8193-C106B9C92C97.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>signature</key>
 			<string>IDP_Playground-aybekrwxpqobnvdsytwnrlbnisid</string>
 			<key>timeStartedRecording</key>
-			<real>561298000.69117105</real>
+			<real>561899429.03682995</real>
 			<key>timeStoppedRecording</key>
-			<real>561298001.24328196</real>
+			<real>561899429.55779898</real>
 			<key>title</key>
 			<string>Build target IDP Playground</string>
 			<key>uniqueIdentifier</key>
-			<string>39D777E9-D14F-4FB2-9169-4B30852501BF</string>
+			<string>27B425CE-E15D-4D02-8193-C106B9C92C97</string>
 		</dict>
 	</dict>
 	<key>preserveOldLogs</key>

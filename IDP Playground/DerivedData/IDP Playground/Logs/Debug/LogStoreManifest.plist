@@ -6,6 +6,93 @@
 	<integer>9</integer>
 	<key>logs</key>
 	<dict>
+		<key>02BA1C8E-A2BE-4412-B5E4-1E9312561D01</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>02BA1C8E-A2BE-4412-B5E4-1E9312561D01.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561899089.85864997</real>
+			<key>timeStoppedRecording</key>
+			<real>561899130.33121705</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>02BA1C8E-A2BE-4412-B5E4-1E9312561D01</string>
+		</dict>
+		<key>09AFE1A4-6194-4E9B-A212-F12CC977DAC7</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>09AFE1A4-6194-4E9B-A212-F12CC977DAC7.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561898472.67893696</real>
+			<key>timeStoppedRecording</key>
+			<real>561898612.81804597</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>09AFE1A4-6194-4E9B-A212-F12CC977DAC7</string>
+		</dict>
+		<key>16D0EB73-B941-4C35-A273-88F615090233</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>16D0EB73-B941-4C35-A273-88F615090233.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561899131.44740796</real>
+			<key>timeStoppedRecording</key>
+			<real>561899174.129179</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>16D0EB73-B941-4C35-A273-88F615090233</string>
+		</dict>
 		<key>18AC8538-57D4-4E27-BE65-34C6BC014D3F</key>
 		<dict>
 			<key>className</key>
@@ -35,7 +122,7 @@
 			<key>uniqueIdentifier</key>
 			<string>18AC8538-57D4-4E27-BE65-34C6BC014D3F</string>
 		</dict>
-		<key>4E86B9D7-0143-49F4-8DC5-48620C728880</key>
+		<key>1CC6542C-D7D0-41D8-AF8E-E517A4BDBE8F</key>
 		<dict>
 			<key>className</key>
 			<string>DBGConsoleLog</string>
@@ -44,7 +131,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
 			<key>fileName</key>
-			<string>4E86B9D7-0143-49F4-8DC5-48620C728880.xcactivitylog</string>
+			<string>1CC6542C-D7D0-41D8-AF8E-E517A4BDBE8F.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>S</string>
 			<key>schemeIdentifier-containerName</key>
@@ -56,13 +143,680 @@
 			<key>signature</key>
 			<string>Debug IDP Playground</string>
 			<key>timeStartedRecording</key>
-			<real>560944605.06253099</real>
+			<real>561899175.10991704</real>
 			<key>timeStoppedRecording</key>
-			<real>560944606.38325799</real>
+			<real>561899342.82375395</real>
 			<key>title</key>
 			<string>Debug IDP Playground</string>
 			<key>uniqueIdentifier</key>
-			<string>4E86B9D7-0143-49F4-8DC5-48620C728880</string>
+			<string>1CC6542C-D7D0-41D8-AF8E-E517A4BDBE8F</string>
+		</dict>
+		<key>2468654F-58D5-4E4D-A5CA-A1E1F5AEA840</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>2468654F-58D5-4E4D-A5CA-A1E1F5AEA840.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561899349.52309501</real>
+			<key>timeStoppedRecording</key>
+			<real>561899353.59662795</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>2468654F-58D5-4E4D-A5CA-A1E1F5AEA840</string>
+		</dict>
+		<key>3FAE291A-C665-4A4C-873A-9A588EED23A4</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>3FAE291A-C665-4A4C-873A-9A588EED23A4.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561899429.56632602</real>
+			<key>timeStoppedRecording</key>
+			<real>561899765.80165696</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>3FAE291A-C665-4A4C-873A-9A588EED23A4</string>
+		</dict>
+		<key>42EFD3F0-04D8-49F2-A621-C90C74E7A566</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>42EFD3F0-04D8-49F2-A621-C90C74E7A566.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561898315.68401897</real>
+			<key>timeStoppedRecording</key>
+			<real>561898407.54934394</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>42EFD3F0-04D8-49F2-A621-C90C74E7A566</string>
+		</dict>
+		<key>48D1D29E-D1E5-43AF-ABD4-D18296CEFA07</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>48D1D29E-D1E5-43AF-ABD4-D18296CEFA07.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561897988.016909</real>
+			<key>timeStoppedRecording</key>
+			<real>561898310.52692497</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>48D1D29E-D1E5-43AF-ABD4-D18296CEFA07</string>
+		</dict>
+		<key>520BEFDF-7B57-450C-A5E5-3118F654060E</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>520BEFDF-7B57-450C-A5E5-3118F654060E.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561899364.53889096</real>
+			<key>timeStoppedRecording</key>
+			<real>561899409.18855298</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>520BEFDF-7B57-450C-A5E5-3118F654060E</string>
+		</dict>
+		<key>5EA27A4B-70C0-47EA-BE49-6735890C4D81</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>5EA27A4B-70C0-47EA-BE49-6735890C4D81.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561897883.81959105</real>
+			<key>timeStoppedRecording</key>
+			<real>561897983.96648896</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>5EA27A4B-70C0-47EA-BE49-6735890C4D81</string>
+		</dict>
+		<key>67D8F453-2447-4419-894E-DC4689CF2A70</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>67D8F453-2447-4419-894E-DC4689CF2A70.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561898657.69049799</real>
+			<key>timeStoppedRecording</key>
+			<real>561898710.92925894</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>67D8F453-2447-4419-894E-DC4689CF2A70</string>
+		</dict>
+		<key>712B7B50-B676-4D58-B952-708B1779DBBB</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>712B7B50-B676-4D58-B952-708B1779DBBB.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561898635.37832499</real>
+			<key>timeStoppedRecording</key>
+			<real>561898652.23560202</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>712B7B50-B676-4D58-B952-708B1779DBBB</string>
+		</dict>
+		<key>7B8F25DF-B908-429D-96D4-A33415C985F0</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>7B8F25DF-B908-429D-96D4-A33415C985F0.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561898978.73459101</real>
+			<key>timeStoppedRecording</key>
+			<real>561899088.70919502</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>7B8F25DF-B908-429D-96D4-A33415C985F0</string>
+		</dict>
+		<key>88E0FDEB-A5E5-481F-9A16-C768D82FCB61</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>88E0FDEB-A5E5-481F-9A16-C768D82FCB61.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561896715.20560205</real>
+			<key>timeStoppedRecording</key>
+			<real>561896776.122697</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>88E0FDEB-A5E5-481F-9A16-C768D82FCB61</string>
+		</dict>
+		<key>8FD5C690-5697-4360-A7FD-19453737E05E</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>8FD5C690-5697-4360-A7FD-19453737E05E.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561899483.09633899</real>
+			<key>timeStoppedRecording</key>
+			<real>561899766.28856397</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>8FD5C690-5697-4360-A7FD-19453737E05E</string>
+		</dict>
+		<key>971E3875-8637-43B1-A9E1-25C64C1DD52B</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>971E3875-8637-43B1-A9E1-25C64C1DD52B.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561898208.73827302</real>
+			<key>timeStoppedRecording</key>
+			<real>561898310.818295</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>971E3875-8637-43B1-A9E1-25C64C1DD52B</string>
+		</dict>
+		<key>A858D916-01C5-45C4-9F24-DE548D868F93</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>A858D916-01C5-45C4-9F24-DE548D868F93.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561898931.84142804</real>
+			<key>timeStoppedRecording</key>
+			<real>561898973.62636495</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>A858D916-01C5-45C4-9F24-DE548D868F93</string>
+		</dict>
+		<key>A8FC5A39-CD57-4D09-8A90-ACC20F087894</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>A8FC5A39-CD57-4D09-8A90-ACC20F087894.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561899350.00063002</real>
+			<key>timeStoppedRecording</key>
+			<real>561899361.77109504</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>A8FC5A39-CD57-4D09-8A90-ACC20F087894</string>
+		</dict>
+		<key>AA3D16ED-E732-4454-A4D6-75AD1D279A37</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>AA3D16ED-E732-4454-A4D6-75AD1D279A37.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561898408.69665205</real>
+			<key>timeStoppedRecording</key>
+			<real>561898471.41405702</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>AA3D16ED-E732-4454-A4D6-75AD1D279A37</string>
+		</dict>
+		<key>AA90A905-4C18-4193-9E94-0711754310E1</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>AA90A905-4C18-4193-9E94-0711754310E1.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561896782.09226596</real>
+			<key>timeStoppedRecording</key>
+			<real>561897017.76417196</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>AA90A905-4C18-4193-9E94-0711754310E1</string>
+		</dict>
+		<key>BF0E65AF-EE86-49DB-974E-B4CAE8403F0B</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>BF0E65AF-EE86-49DB-974E-B4CAE8403F0B.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561898712.01328897</real>
+			<key>timeStoppedRecording</key>
+			<real>561898713.43845403</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>BF0E65AF-EE86-49DB-974E-B4CAE8403F0B</string>
+		</dict>
+		<key>C1443CE0-B0ED-41C2-BBDB-65E9A4A118DC</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>C1443CE0-B0ED-41C2-BBDB-65E9A4A118DC.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561897864.87436998</real>
+			<key>timeStoppedRecording</key>
+			<real>561897883.34459102</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>C1443CE0-B0ED-41C2-BBDB-65E9A4A118DC</string>
+		</dict>
+		<key>C7CFBDDE-AE8E-4FBE-8D7C-A74F3963B0BD</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>C7CFBDDE-AE8E-4FBE-8D7C-A74F3963B0BD.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561898723.12721097</real>
+			<key>timeStoppedRecording</key>
+			<real>561898937.47382605</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>C7CFBDDE-AE8E-4FBE-8D7C-A74F3963B0BD</string>
+		</dict>
+		<key>CDF9137E-5038-4E14-B27B-40765E76CDCF</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>CDF9137E-5038-4E14-B27B-40765E76CDCF.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561898614.16421497</real>
+			<key>timeStoppedRecording</key>
+			<real>561898651.96959996</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>CDF9137E-5038-4E14-B27B-40765E76CDCF</string>
+		</dict>
+		<key>D0F5E97C-333C-4F79-8D71-9FC3465B8361</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>D0F5E97C-333C-4F79-8D71-9FC3465B8361.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561898641.446702</real>
+			<key>timeStoppedRecording</key>
+			<real>561898652.73575497</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>D0F5E97C-333C-4F79-8D71-9FC3465B8361</string>
+		</dict>
+		<key>E0403345-CFFD-4B39-9D57-B85E8A34AF66</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>E0403345-CFFD-4B39-9D57-B85E8A34AF66.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561898237.48936296</real>
+			<key>timeStoppedRecording</key>
+			<real>561898311.13531101</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>E0403345-CFFD-4B39-9D57-B85E8A34AF66</string>
+		</dict>
+		<key>FF6EE24B-1534-4F7E-B13D-3923BA9A4C57</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>FF6EE24B-1534-4F7E-B13D-3923BA9A4C57.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>IDP Playground project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>IDP Playground</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>0</integer>
+			<key>signature</key>
+			<string>Debug IDP Playground</string>
+			<key>timeStartedRecording</key>
+			<real>561897018.79231596</real>
+			<key>timeStoppedRecording</key>
+			<real>561897863.69356203</real>
+			<key>title</key>
+			<string>Debug IDP Playground</string>
+			<key>uniqueIdentifier</key>
+			<string>FF6EE24B-1534-4F7E-B13D-3923BA9A4C57</string>
 		</dict>
 	</dict>
 </dict>

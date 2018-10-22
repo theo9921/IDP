@@ -4,9 +4,12 @@
 *	Project: Part 1B Engineering Tripos Integrated Design Project
 */
 
+#include <iostream>
 #include <robot_instr.h>
 #include <robot_link.h>
 #include <stopwatch.h>
+
+using namespace std;
 
 robot_link rlink;
 stopwatch testwatch;
@@ -33,12 +36,70 @@ stopwatch motorwatch;
 #define LFSTATE_WWW 247 //11110111
 
 #define TURNING_SPEED 60
+#define MOTOR_LEFT_GO MOTOR_2_GO
+#define MOTOR_RIGHT_GO MOTOR_1_GO
 
 
 //8-bit number with 3 LSB's being the sensors
 int state;
 
-void turnLeft()
+//function to move the robot straight for a period of time or indefinetely (with or without ignoring corners)
+void moveStraight(int timeLen, bool skipCorners)
+{
+	stopwatch tmpStopWatch; //stopwatch to move straight
+	int cornerCounter = 0; //integer to hold the number of corners encountered
+	tmpStopWatch.start(); //start the stopwatch
+	while(tmpStopWatch.read()<=timeLen|| timeLen == -1) //if we want to move indefinetely or for a fixed period of time
+	{
+		//read the output from the chip
+		state = rlink.request(READ_PORT_5);
+		if(state==LFSTATE_BWB)
+		{
+			//move forwards
+			rlink.command(BOTH_MOTORS_GO_OPPOSITE, DEFAULT_SPEED);
+		}
+		else if(state==LFSTATE_BBW)
+		{
+			//turn a bit to the right
+			//speed down the left wheel
+			rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES + DEFAULT_SPEED);
+			rlink.command(MOTOR_RIGHT_GO, DEFAULT_SPEED*0.6);
+		}
+		else if(state==LFSTATE_BWW)
+		{
+			//turn a bit to the right
+			//speed down the left wheel
+			rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES + DEFAULT_SPEED);
+			rlink.command(MOTOR_RIGHT_GO, DEFAULT_SPEED*0.75);
+			
+		}
+		else if(state==LFSTATE_WWB)
+		{
+			//turn a bit to the left
+			//speed down right wheel
+			rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES+DEFAULT_SPEED*0.75);
+			rlink.command(MOTOR_RIGHT_GO, DEFAULT_SPEED);
+		}
+		else if(state==LFSTATE_WBB)
+		{
+			//turn a bit to the left
+			//speed down right wheel
+			rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES+DEFAULT_SPEED*0.6);
+			rlink.command(MOTOR_RIGHT_GO, DEFAULT_SPEED);
+		}
+		else if(state==LFSTATE_WWW)
+		{
+			if(!skipCorners) break;
+			cornerCounter++;
+		}
+		else
+		{
+			rlink.command(BOTH_MOTORS_GO_OPPOSITE, REVERSE_STHRES + DEFAULT_SPEED);
+		}
+	}
+}
+
+void turnLeftBackup()
 {
 	//turn left by moving forward a bit first
 	motorwatch.start();
@@ -55,6 +116,31 @@ void turnLeft()
 		if(state==LFSTATE_WBB) break;
 	}
 }
+
+void turnLeft(int nCross)
+{
+	motorwatch.start();
+	cout << "Turning Left" << endl;
+	int prevState;
+	int nWWB = 0;
+	moveStraight(2300, true);
+	while(true)
+	{
+		rlink.command(MOTOR_LEFT_GO, 0);
+		rlink.command(MOTOR_RIGHT_GO, 60);
+		//read the output from the chip
+		state = rlink.request(READ_PORT_5);
+		if(state==LFSTATE_WWB && prevState != state)
+		{
+			nWWB++; 
+		}
+		if(nWWB > nCross) 
+			break;
+		prevState = state;
+	}
+}
+
+
 
 void turnRight()
 {
@@ -74,7 +160,3 @@ void turnRight()
 	}
 }
 
-void moveStraight()
-{
-	
-}

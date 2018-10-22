@@ -1,3 +1,3 @@
 # Automatically generated Makefile
-test_lf_backup : test_lf_backup.cpp 
-	 g++ -ansi -Wall -g -I/export/teach/1BRobot -L/export/teach/1BRobot test_lf_backup.cpp -o test_lf_backup -lrobot
+test_line_following : test_line_following.cpp 
+	 g++ -ansi -Wall -g -I/export/teach/1BRobot -L/export/teach/1BRobot test_line_following.cpp -o test_line_following -lrobot

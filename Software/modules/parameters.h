@@ -7,6 +7,7 @@
 #include <robot_instr.h>
 #include <robot_link.h>
 #include <stopwatch.h>
+#include <bitset>
 
 #define ROBOT_NUM 9
 

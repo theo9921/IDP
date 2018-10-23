@@ -12,12 +12,8 @@
 
 #include <iostream>
 using namespace std;
-#include <robot_instr.h>
-#include <robot_link.h>
-#include <stopwatch.h>
-#include <bitset>
+#include "../modules/parameters.h"
 
-#define ROBOT_NUM 9
 robot_link rlink;
 stopwatch timer;
 
@@ -47,6 +43,8 @@ int main()
 			led_bitsR = led_bitsR << 1;
 			cout << "send_bits = " << bitset<8>(send_bits) << endl;
 			rlink.command(WRITE_PORT_4, send_bits);
+			timer.start();
+			while(timer.read()<=500){}
 		}
 		actuator_bits = actuator_bits >> 1;
 	}

@@ -4,27 +4,24 @@ using namespace std;
 
 #define NODE_NUM 34
 
+#define LEFT 0
+#define RIGHT 1
+#define UP 2
+#define DOWN 3
+
 struct node{
     // id of the corner
     int id;
     
-    // is this a wall node?
-    bool isWall;
-    
     // pointers to surroundings
-    node* left;
-    node* right;
-    node* up;
-    node* down;
+    node *left, *right, *up, *down;
     
     // distance to surroundings
-    int leftDis;
-    int rightDis;
-    int upDis;
-    int downDis;
-//
+    int leftDis, rightDis, upDis, downDis;
+    
+    // default initiation values
     node():
-        isWall(false), left(NULL), right(NULL), up(NULL), down(NULL){};
+        id(-1), left(NULL), right(NULL), up(NULL), down(NULL){};
 };
 
 node* enrichMap(node* nodes){
@@ -52,7 +49,6 @@ node* enrichMap(node* nodes){
     }
     
     // sanity check
-    node* dbug = nodes+32;
     for(int i=0; i<NODE_NUM; i++){
         node* thisNode = nodes + i;
         if(thisNode->left && thisNode->left->right != thisNode)
@@ -79,14 +75,14 @@ node* createMap(){
     nodes[0].left =  nodes+1;
     nodes[0].down =  nodes+32;
     nodes[32].down =  nodes+6;
-    nodes[1].down =  nodes+7;
+    //nodes[1].down =  nodes+7;
     nodes[1].left =  nodes+2;
     nodes[6].left =  nodes+33;
     nodes[33].left =  nodes+7;
     nodes[7].left =  nodes+8;
     nodes[7].down =  nodes+16;
     nodes[1].left =  nodes+2;
-    nodes[2].down =  nodes+8;
+    //nodes[2].down =  nodes+8;
     nodes[2].left =  nodes+3;
     nodes[8].left =  nodes+9;
     nodes[8].down =  nodes+17;
@@ -108,18 +104,19 @@ node* createMap(){
     nodes[5].down =  nodes+11;
     nodes[4].right =  nodes+3;
     nodes[4].down =  nodes+10;
+    //nodes[3].down = nodes+9;
     nodes[10].right =  nodes+9;
     nodes[10].down =  nodes+12;
-    nodes[11].right =  nodes+10;
+    //nodes[11].right =  nodes+10;
     nodes[11].down =  nodes+13;
-    nodes[13].right =  nodes+12;
+    //nodes[13].right =  nodes+12;
     nodes[13].down =  nodes+15;
     nodes[12].down =  nodes+14;
-    nodes[15].right =  nodes+14;
+    //nodes[15].right =  nodes+14;
     nodes[15].down =  nodes+19;
     nodes[14].down =  nodes+18;
     nodes[19].down =  nodes+23;
-    nodes[19].right =  nodes+18;
+    //nodes[19].right =  nodes+18;
     nodes[18].down =  nodes+22;
     nodes[23].right =  nodes+22;
     nodes[23].down =  nodes+27;
@@ -131,6 +128,30 @@ node* createMap(){
     
     // enrich the manully labelled map
     return enrichMap(nodes);
+}
+
+node
+
+node* findNextMove(node* start, int dir, node* end){
+    if(start->id == 1 || start->id == 2 || start->id == 3){
+        
+    }
+    else if(start->id == 11 || start->id == 13 || start->id == 15 || start->id == 19 || start->id == 23){
+        
+    }
+}
+
+node* findPath(node* start, int dir, node* end){
+    node** path = new *node[34];
+    node* tmp = start;
+    int counter = 0;
+    path[counter] = start;
+    if(start->id == 1 || start->id == 2 || start->id == 3){
+        while(tmp->id != 4){
+            tmp
+        }
+    }
+    
 }
 
 int main(){

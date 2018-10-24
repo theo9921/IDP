@@ -19,9 +19,6 @@ using namespace std;
 //duration of test in seconds
 int test_time = 600;
 
-//Define boolean variables (0/1) to hold the readings of the 3 line following sensors
-bool sens1=0, sens2=0, sens3=0;
-
 int nCrosses[4] = {1, 0, 1, 0};
 int nTurn = 0;
 

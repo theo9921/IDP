@@ -57,7 +57,9 @@ void moveStraight(int timeLen, bool skipCorners)
 	stopwatch tmpStopWatch; //stopwatch to move straight
 	int cornerCounter = 0; //integer to hold the number of corners encountered
 	tmpStopWatch.start(); //start the stopwatch
-	while(tmpStopWatch.read()<=timeLen|| timeLen == -1) //if we want to move indefinetely or for a fixed period of time
+	int prevState = state;
+	
+	while(tmpStopWatch.read()<=timeLen || timeLen == -1) //if we want to move indefinetely or for a fixed period of time
 	{
 		//read the output from the chip
 		state = rlink.request(READ_PORT_5);
@@ -105,6 +107,8 @@ void moveStraight(int timeLen, bool skipCorners)
 			//go backwards until it reaches a known state
 			rlink.command(BOTH_MOTORS_GO_OPPOSITE, REVERSE_STHRES + DEFAULT_SPEED);
 		}
+		
+		prevState=state;
 	}
 }
 
@@ -116,7 +120,7 @@ void turnLeft(int nCross)
 	int prevState;
 	int nWWB = 0;
 	//move straight until robots centre is at the junction
-	moveStraight(2300, true);
+	moveStraight(1150, true);
 	
 	//turn to the left while ignoring as many lines as necessary until it aligns with the line
 	while(true)
@@ -143,7 +147,7 @@ void turnRight(int nCross)
 	int prevState;
 	int nWWB = 0;
 	//move straight until robots centre is at the junction
-	moveStraight(2300, true);
+	moveStraight(1150, true);
 	
 	//turn to the right while ignoring as many lines as necessary until it aligns with the line
 	while(true)

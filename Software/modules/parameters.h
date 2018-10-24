@@ -12,6 +12,6 @@
 #define ROBOT_NUM 9
 
 //number between 0 and 127 (128-255 for reverse)
-#define DEFAULT_SPEED 40
+#define DEFAULT_SPEED 80
 //above that direction of motors will be reversed
 #define REVERSE_STHRES 128

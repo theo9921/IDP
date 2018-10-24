@@ -1,3 +1,3 @@
 # Automatically generated Makefile
-test_displayLEDs : test_displayLEDs.cpp 
-	 g++ -ansi -Wall -g -I/export/teach/1BRobot -L/export/teach/1BRobot test_displayLEDs.cpp -o test_displayLEDs -lrobot
+test_line_following : test_line_following.cpp 
+	 g++ -ansi -Wall -g -I/export/teach/1BRobot -L/export/teach/1BRobot test_line_following.cpp -o test_line_following -lrobot

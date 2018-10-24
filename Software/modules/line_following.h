@@ -63,6 +63,16 @@ void moveStraight(int timeLen, bool skipCorners)
 	{
 		//read the output from the chip
 		state = rlink.request(READ_PORT_5);
+		
+		// corner detection and reaction
+		if(state!=LFSTATE_WWW && cornerCounter>2 && skipCorners){
+			break; // if cornerCounter is larger than 2, then a corner is actually detected
+		}
+		else if(state!=LFSTATE_WWW && cornerCounter<=2){
+			cornerCounter=0; // reset cornerCounter if WWW is a miss detection
+		}
+		
+		// move straight feedback from line followers
 		if(state==LFSTATE_BWB)
 		{
 			//move forwards
@@ -99,8 +109,9 @@ void moveStraight(int timeLen, bool skipCorners)
 		}
 		else if(state==LFSTATE_WWW)
 		{
-			if(!skipCorners) break;
-			cornerCounter++;
+			if(prevState==state){
+				cornerCounter++;
+			}
 		}
 		else
 		{
@@ -108,6 +119,7 @@ void moveStraight(int timeLen, bool skipCorners)
 			rlink.command(BOTH_MOTORS_GO_OPPOSITE, REVERSE_STHRES + DEFAULT_SPEED);
 		}
 		
+		// store previous state
 		prevState=state;
 	}
 }

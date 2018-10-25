@@ -6,14 +6,12 @@
 
 #include "../modules/parameters.h"
 #include "../modules/line_following.h"
-#include "../module/handling.h"
 #include "../modules/mapping.h"
 #include <iostream>
 
 using namespace std;
 
 //initialize robot link
-robot_link rlink;
 
 //duration of test in seconds
 int test_time = 600;
@@ -32,8 +30,14 @@ int main()
 		rlink.print_errs("	");
 		return -1;	
 	}
-	
-	
+	for(int i=0; i<=2; i++)
+	{
+		moveStraight(-1, false);
+	}
+	turnLeftFull(0);
+	moveStraight(-1, false);
+	turnLeftFull(0);
+	moveStraight(1000, true);
 }
 
 

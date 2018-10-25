@@ -18,7 +18,6 @@
 
 using namespace std;
 
-robot_link rlink;
 stopwatch testwatch;
 stopwatch motorwatch;
 
@@ -52,7 +51,7 @@ stopwatch motorwatch;
 int state;
 
 //function to move the robot straight for a period of time or indefinetely (with or without ignoring corners)
-void moveStraight(int timeLen, bool skipCorners)
+void moveStraight(int timeLen, bool skipCornersWhileTurning )
 {
 	stopwatch tmpStopWatch; //stopwatch to move straight
 	int cornerCounter = 0; //integer to hold the number of corners encountered
@@ -65,8 +64,10 @@ void moveStraight(int timeLen, bool skipCorners)
 		state = rlink.request(READ_PORT_5);
 		
 		// corner detection and reaction
-		if(state!=LFSTATE_WWW && cornerCounter>2 && skipCorners){
-			break; // if cornerCounter is larger than 2, then a corner is actually detected
+		if(state!=LFSTATE_WWW && cornerCounter>2){
+			// if cornerCounter is larger than 2, then a corner is actually detected
+			cout << "meet a corner" << endl;
+			if(!skipCornersWhileTurning) break;
 		}
 		else if(state!=LFSTATE_WWW && cornerCounter<=2){
 			cornerCounter=0; // reset cornerCounter if WWW is a miss detection
@@ -137,11 +138,11 @@ void turnLeftFull(int nCross)
 	//turn to the left while ignoring as many lines as necessary until it aligns with the line
 	while(true)
 	{
-		rlink.command(MOTOR_LEFT_GO, TURNING_SPEED * 0.5);
-		rlink.command(MOTOR_RIGHT_GO, TURNING_SPEED);
+		rlink.command(MOTOR_LEFT_GO, TURNING_SPEED);
+		rlink.command(MOTOR_RIGHT_GO, TURNING_SPEED*0.5);
 		//read the output from the chip
 		state = rlink.request(READ_PORT_5);
-		if(state==LFSTATE_WWB && prevState != state)
+		if(state==LFSTATE_WBB && prevState != state)
 		{
 			nWWB++; 
 		}

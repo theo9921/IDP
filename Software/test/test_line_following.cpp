@@ -36,8 +36,9 @@ int main()
 		//read the output from the chip
 		state = rlink.request(READ_PORT_5);
 		moveStraight(-1, false);
+		cout << "break" << endl;
 		//turn left and be sure to ignore 1 line crossing
-		turnLeft(nCrosses[nTurn%4]);
+		turnLeftFull(0);
 		nTurn++;
 	}
 	return 0;

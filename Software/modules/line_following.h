@@ -83,21 +83,21 @@ void moveStraight(int timeLen, bool skipCorners)
 			//turn a bit to the right
 			//speed down the left wheel
 			rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES + DEFAULT_SPEED);
-			rlink.command(MOTOR_RIGHT_GO, DEFAULT_SPEED*0.6);
+			rlink.command(MOTOR_RIGHT_GO, DEFAULT_SPEED*0.8);
 		}
 		else if(state==LFSTATE_BWW)
 		{
 			//turn a bit to the right
 			//speed down the left wheel
 			rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES + DEFAULT_SPEED);
-			rlink.command(MOTOR_RIGHT_GO, DEFAULT_SPEED*0.75);
+			rlink.command(MOTOR_RIGHT_GO, DEFAULT_SPEED*0.9);
 			
 		}
 		else if(state==LFSTATE_WWB)
 		{
 			//turn a bit to the left
 			//speed down right wheel
-			rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES+DEFAULT_SPEED*0.75);
+			rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES+DEFAULT_SPEED*0.8);
 			rlink.command(MOTOR_RIGHT_GO, DEFAULT_SPEED);
 		}
 		else if(state==LFSTATE_WBB)
@@ -121,6 +121,60 @@ void moveStraight(int timeLen, bool skipCorners)
 		
 		// store previous state
 		prevState=state;
+	}
+}
+
+//turn left move the centre to the junction and make a rotation about the center
+void turnLeftFull(int nCross)
+{
+	motorwatch.start();
+	cout << "Turning Left" << endl;
+	int prevState;
+	int nWWB = 0;
+	//move straight until robots centre is at the junction
+	moveStraight(1150, true);
+	
+	//turn to the left while ignoring as many lines as necessary until it aligns with the line
+	while(true)
+	{
+		rlink.command(MOTOR_LEFT_GO, TURNING_SPEED * 0.5);
+		rlink.command(MOTOR_RIGHT_GO, TURNING_SPEED);
+		//read the output from the chip
+		state = rlink.request(READ_PORT_5);
+		if(state==LFSTATE_WWB && prevState != state)
+		{
+			nWWB++; 
+		}
+		if(nWWB > nCross) 
+			break;
+		prevState = state;
+	}
+}
+
+//turn left move the centre to the junction and make a rotation about the center
+void turnRightFull(int nCross)
+{
+	motorwatch.start();
+	cout << "Turning Left" << endl;
+	int prevState;
+	int nBWW = 0;
+	//move straight until robots centre is at the junction
+	moveStraight(1150, true);
+	
+	//turn to the left while ignoring as many lines as necessary until it aligns with the line
+	while(true)
+	{
+		rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES + TURNING_SPEED * 0.5);
+		rlink.command(MOTOR_RIGHT_GO, REVERSE_STHRES + TURNING_SPEED);
+		//read the output from the chip
+		state = rlink.request(READ_PORT_5);
+		if(state==LFSTATE_BWW && prevState != state)
+		{
+			nBWW++; 
+		}
+		if(nBWW > nCross) 
+			break;
+		prevState = state;
 	}
 }
 

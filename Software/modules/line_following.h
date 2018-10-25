@@ -83,21 +83,21 @@ void moveStraight(int timeLen, bool skipCorners)
 			//turn a bit to the right
 			//speed down the left wheel
 			rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES + DEFAULT_SPEED);
-			rlink.command(MOTOR_RIGHT_GO, DEFAULT_SPEED*0.6);
+			rlink.command(MOTOR_RIGHT_GO, DEFAULT_SPEED*0.8);
 		}
 		else if(state==LFSTATE_BWW)
 		{
 			//turn a bit to the right
 			//speed down the left wheel
 			rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES + DEFAULT_SPEED);
-			rlink.command(MOTOR_RIGHT_GO, DEFAULT_SPEED*0.75);
+			rlink.command(MOTOR_RIGHT_GO, DEFAULT_SPEED*0.9);
 			
 		}
 		else if(state==LFSTATE_WWB)
 		{
 			//turn a bit to the left
 			//speed down right wheel
-			rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES+DEFAULT_SPEED*0.75);
+			rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES+DEFAULT_SPEED*0.8);
 			rlink.command(MOTOR_RIGHT_GO, DEFAULT_SPEED);
 		}
 		else if(state==LFSTATE_WBB)

@@ -21,7 +21,15 @@ int main()
 	}
 	timer.start();
 	
-	int white, blue, red;
+	/*
+	int none, white, blue, red;
+	
+	rlink.command(WRITE_PORT_5, 0b11111111);
+	none = 0;
+	for(int i=0; i<LEN; i++){
+		none += rlink.request(ADC2);
+	}
+	none /= LEN;
 	
 	rlink.command(WRITE_PORT_5, 0b11101111);
 	white = 0;
@@ -44,14 +52,25 @@ int main()
 	}
 	red /= LEN;
 	
-	int rw = red - white;
-	int bw = blue - white;
-	int rb = red - blue;
+	int wn = white - none;
+	int rn = red - none;
+	int bn = blue - none;
 	
-	cout << "b-w0: " << bw << " r-w0: " << rw << " r-b0: " << rb << endl;
+	cout << "w0: " << bw << " r0: " << rw << " b0: " << rb << endl;
 	cin >> red;
+	*/
 	
+	int none, white, blue, red;
 	while(true){
+		// read none light
+		rlink.command(WRITE_PORT_5, 0b11111111);
+		none = 0;
+		for(int i=0; i<LEN; i++){
+			none += rlink.request(ADC2);
+		}
+		none /= LEN;
+		
+		// read white light
 		rlink.command(WRITE_PORT_5, 0b11101111);
 		white = 0;
 		for(int i=0; i<LEN; i++){
@@ -59,6 +78,7 @@ int main()
 		}
 		white /= LEN;
 		
+		// read blue light
 		rlink.command(WRITE_PORT_5, 0b11011111);
 		blue = 0;
 		for(int i=0; i<LEN; i++){
@@ -66,6 +86,7 @@ int main()
 		}
 		blue /= LEN;
 		
+		// read red light
 		rlink.command(WRITE_PORT_5, 0b10111111);
 		red = 0;
 		for(int i=0; i<LEN; i++){
@@ -73,7 +94,8 @@ int main()
 		}
 		red /= LEN;
 		
-		cout << "b-w: " << blue-white-bw << " r-w: " << red-white-rw << " r-b: " << red-blue-rb << endl;
+		// output normalized
+		cout << "w: " << white-none << " r: " << red-none << " b: " << red-none << endl;
 		
 		cin >> red;
 	}

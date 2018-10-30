@@ -60,8 +60,13 @@ int main()
 	cin >> red;
 	*/
 	
+		
 	int none, white, blue, red;
+
+
 	while(true){
+		cin >> red;
+	
 		// read none light
 		rlink.command(WRITE_PORT_5, 0b11111111);
 		none = 0;
@@ -95,9 +100,7 @@ int main()
 		red /= LEN;
 		
 		// output normalized
-		cout << "w: " << white-none << " r: " << red-none << " b: " << red-none << endl;
-		
-		cin >> red;
+		cout << "w: " << white-none << " r: " << red-none << " b: " << blue-none << endl;
 	}
 	
 	

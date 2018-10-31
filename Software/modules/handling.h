@@ -16,18 +16,23 @@ using namespace std;
 
 #define PLATFORM_SPEED 75
 
+void sleep(float milliseconds)
+{
+	stopwatch timer;
+	timer.start();
+	while(timer.read() <= milliseconds);
+}
+
 void movePlatform(float position) //move platform up and down by a certain distance
 {
 	float currentPosition = 0;
 	if(position < currentPosition)
 	{
-		rlink.command(MOTOR_3_GO, PLATFORM_SPEED); //move down
-		sleep(9000);
+		rlink.command(MOTOR_3_GO, REVERSE_STHRES + PLATFORM_SPEED); //move down
 	}
 	else if(position > currentPosition)
 	{
-		rlink.command(MOTOR_3_GO, REVERSE_STHRES + PLATFORM_SPEED); //move up
-		sleep(9000);
+		rlink.command(MOTOR_3_GO, PLATFORM_SPEED); //move up
 	}
 	else
 	{
@@ -51,10 +56,11 @@ void drop()
 	rlink.command(WRITE_PORT_4, ACTUATORS_HALFEXT);
 	sleep(50);
 	rlink.command(WRITE_PORT_4, ACTUATORS_FULLEXT);	
-	sleep(1000);
+	sleep(3000);
 	rlink.command(WRITE_PORT_4, ACTUATORS_HALFEXT);
 	sleep(50);
 	rlink.command(WRITE_PORT_4, ACTUATORS_NOEXT);	
 } 
 
 //int scan(){}  //return the block type
+

@@ -6,12 +6,15 @@ description=1B IDP
 run_cmd=./test_platform
 
 [files]
-current_page=2
+current_page=1
 FILE_NAME_0=1149;C++;0;EUTF-8;1;1;0;%2Fhomes%2Ftto21%2Fidp_shared%2Ftto21%2FIDP%2FSoftware%2Ftest%2Ftest_block_reading.cpp;0;4
-FILE_NAME_1=1168;C++;0;EUTF-8;1;1;0;%2Fhomes%2Ftto21%2Fidp_shared%2Ftto21%2FIDP%2FSoftware%2Ftest%2Ftest_displayLEDs.cpp;0;4
-FILE_NAME_2=780;C++;0;EUTF-8;1;1;0;%2Fhomes%2Ftto21%2Fidp_shared%2Ftto21%2FIDP%2FSoftware%2Ftest%2Ftest_platform.cpp;0;4
-FILE_NAME_3=527;C++;0;EUTF-8;1;1;0;%2Fhomes%2Ftto21%2Fidp_shared%2Ftto21%2FIDP%2FSoftware%2Fmodules%2Fparameters.h;0;4
-FILE_NAME_4=1148;C++;0;EUTF-8;1;1;0;%2Fhomes%2Ftto21%2Fidp_shared%2Ftto21%2FIDP%2FSoftware%2Fmodules%2Fhandling.h;0;4
+FILE_NAME_1=620;C++;0;EUTF-8;1;1;0;%2Fhomes%2Ftto21%2Fidp_shared%2Ftto21%2FIDP%2FSoftware%2Ftest%2Ftest_platform.cpp;0;4
+FILE_NAME_2=414;C++;0;EUTF-8;1;1;0;%2Fhomes%2Ftto21%2Fidp_shared%2Ftto21%2FIDP%2FSoftware%2Fmodules%2Fparameters.h;0;4
+FILE_NAME_3=919;C++;0;EUTF-8;1;1;0;%2Fhomes%2Ftto21%2Fidp_shared%2Ftto21%2FIDP%2FSoftware%2Fmodules%2Fhandling.h;0;4
+FILE_NAME_4=279;C++;0;EUTF-8;1;1;0;%2Fhomes%2Ftto21%2Fidp_shared%2Ftto21%2FIDP%2FSoftware%2Fmain%2Fmain.cpp;0;4
+FILE_NAME_5=0;C++;0;EUTF-8;1;1;0;%2Fhomes%2Ftto21%2Fidp_shared%2Ftto21%2FIDP%2FSoftware%2Fmodules%2Fmapping.h;0;4
+FILE_NAME_6=7098;C++;0;EUTF-8;1;1;0;%2Fhomes%2Ftto21%2Fidp_shared%2Ftto21%2FIDP%2FSoftware%2Fmodules%2Fline_following.h;0;4
+FILE_NAME_7=579;C++;0;EUTF-8;1;1;0;%2Fhomes%2Ftto21%2Fidp_shared%2Ftto21%2FIDP%2FSoftware%2Ftest%2Ftest_displayLEDs.cpp;0;4
 
 [indentation]
 indent_width=4

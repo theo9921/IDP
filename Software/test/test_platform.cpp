@@ -32,7 +32,7 @@ int main()
 		
 		while(watch.read()<=9000)
 		{
-			rlink.command(MOTOR_3_GO, REVERSE_STHRES + PLATFORM_SPEED);
+			rlink.command(MOTOR_3_GO, REVERSE_STHRES+ PLATFORM_SPEED);
 		}
 		rlink.command(MOTOR_3_GO, 0);
 		watch.start();

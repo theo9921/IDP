@@ -4,14 +4,12 @@
 *	Project: Part 1B Engineering Tripos Integrated Design Project
 */
 
-#include "../modules/parameters.h"
 #include "../modules/line_following.h"
 #include "../modules/mapping.h"
+#include "../modules/handling.h"
 #include <iostream>
 
 using namespace std;
-
-//initialize robot link
 
 //duration of test in seconds
 int test_time = 600;
@@ -25,19 +23,17 @@ stopwatch globalWatch;
 
 int main()
 {
-	if (!rlink.initialise(ROBOT_NUM))
-	{
-		rlink.print_errs("	");
-		return -1;	
-	}
-	for(int i=0; i<=2; i++)
-	{
-		moveStraight(-1, false);
-	}
-	turnLeftFull(0);
-	moveStraight(-1, false);
-	turnLeftFull(0);
-	moveStraight(1000, true);
+	#ifdef __arm__  //setup for local hardware
+		if (!rlink.initialise()){} 
+	#else //setup for use over wifi
+		if (!rlink.initialise(ROBOT_NUM))
+		{
+			rlink.print_errs("	");
+			return -1;	
+		}
+	#endif
+	drop();
+	//INSERT STRATEGY AND OVERALL FUNCTION
 }
 
 

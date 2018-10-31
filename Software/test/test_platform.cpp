@@ -15,7 +15,6 @@ using namespace std;
 
 #define ROBOT_NUM 9
 #define PLATFORM_SPEED 75
-robot_link rlink;
 stopwatch watch;
 
 int main()
@@ -31,17 +30,17 @@ int main()
 		cout << "moving motor" << endl;
 		watch.start();
 		
-		while(watch.read()<=9700)
+		while(watch.read()<=9000)
 		{
-			rlink.command(MOTOR_3_GO, PLATFORM_SPEED);
+			rlink.command(MOTOR_3_GO, REVERSE_STHRES + PLATFORM_SPEED);
 		}
 		rlink.command(MOTOR_3_GO, 0);
 		watch.start();
 		while(watch.read() <= 500){}
 		watch.start();
-		while(watch.read()<=9700)
+		while(watch.read()<=9000)
 		{
-			rlink.command(MOTOR_3_GO, REVERSE_STHRES + PLATFORM_SPEED);
+			rlink.command(MOTOR_3_GO, PLATFORM_SPEED);
 		}
 		rlink.command(MOTOR_3_GO, 0);
 		

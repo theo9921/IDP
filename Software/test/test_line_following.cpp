@@ -6,7 +6,6 @@
 
 #include <iostream>
 using namespace std;
-#include "../modules/parameters.h"
 #include "../modules/line_following.h"
 
 /*
@@ -19,11 +18,9 @@ using namespace std;
 //duration of test in seconds
 int test_time = 600;
 
-int nCrosses[4] = {1, 0, 1, 0};
-int nTurn = 0;
-
 int main()
 {
+	cout << "start testing" << endl;
 	if (!rlink.initialise(ROBOT_NUM))
 	{
 		rlink.print_errs("	");
@@ -31,16 +28,21 @@ int main()
 	}
 	
 	testwatch.start();
-	while(testwatch.read()<=test_time*1000)
-	{
-		//read the output from the chip
-		state = rlink.request(READ_PORT_5);
-		moveStraight(-1, false);
-		cout << "break" << endl;
-		//turn left and be sure to ignore 1 line crossing
-		turnLeftFull(0);
-		nTurn++;
-	}
+	
+	moveStraightLittleBitRight(-1);
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	turnLeftFull(0);
+	moveStraight(-1, false);
+	turnLeftFull(0);
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+
 	return 0;
 }
 

@@ -56,7 +56,8 @@ void drop()
 	moveStraight(-1, false);
 	stopMovement();
 	
-	moveStraightLittleBitRight(500, true);
+	moveBackSimple(500);
+	moveStraightLittleBitRight(1000, true);
 	stopMovement();
 	
 	// lift up the platform

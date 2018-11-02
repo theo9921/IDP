@@ -28,7 +28,7 @@ void movePlatform(float position) //move platform up and down by a certain dista
 	float currentPosition = 0;
 	if(position < currentPosition)
 	{
-		rlink.command(MOTOR_3_GO, REVERSE_STHRES + PLATFORM_SPEED); //move down
+		rlink.command(MOTOR_3_GO, PLATFORM_SPEED); //move down
 	}
 	else if(position > currentPosition)
 	{
@@ -42,8 +42,6 @@ void movePlatform(float position) //move platform up and down by a certain dista
 
 void collect()
 {
-	rlink.command(WRITE_PORT_4, ACTUATORS_FULLEXT);
-	sleep(1000);
 	rlink.command(WRITE_PORT_4, ACTUATORS_HALFEXT);
 	sleep(300);
 	rlink.command(WRITE_PORT_4, ACTUATORS_NOEXT);
@@ -62,5 +60,7 @@ void drop()
 	rlink.command(WRITE_PORT_4, ACTUATORS_NOEXT);	
 } 
 
-//int scan(){}  //return the block type
-
+/*int scan() //return the block type
+{
+}  
+*/

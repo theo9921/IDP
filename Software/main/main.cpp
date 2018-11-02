@@ -32,7 +32,35 @@ int main()
 			return -1;	
 		}
 	#endif
-	drop();
+	rlink.command(WRITE_PORT_4, ACTUATORS_NOEXT);
+	moveStraight(-1, false);
+	moveStraightLittleBitRight(1800);
+	rlink.command(WRITE_PORT_4, ACTUATORS_NOEXT);
+	rlink.command(WRITE_PORT_4, ACTUATORS_FULLEXT);
+	moveStraightLittleBitRight(1500);
+	collect();
+	stopMovement();
+	stopwatch watch;
+	watch.start();
+	/*while(watch.read()<=3000)
+	{
+		rlink.command(MOTOR_3_GO, PLATFORM_SPEED);
+	}*/
+	sleep(1000);
+	rlink.command(WRITE_PORT_4, ACTUATORS_FULLEXT);
+	moveStraightLittleBitRight(2500);
+	collect();
+	stopMovement();
+	watch.start();
+	cout << "moving platform up" << endl;
+	while(watch.read()<=10000)
+	{
+		rlink.command(MOTOR_3_GO, REVERSE_STHRES + PLATFORM_SPEED);
+	}
+	rlink.command(MOTOR_3_GO, 0);
+	rlink.command(WRITE_PORT_4, ACTUATORS_FULLEXT);
+	
+	
 	//INSERT STRATEGY AND OVERALL FUNCTION
 }
 

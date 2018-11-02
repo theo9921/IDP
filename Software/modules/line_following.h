@@ -125,6 +125,59 @@ void moveStraight(int timeLen, bool skipCornersWhileTurning )
 	}
 }
 
+void moveStraightLittleBitRight(int timeLen)
+{
+	stopwatch tmpStopWatch; //stopwatch to move straight
+	int cornerCounter = 0; //integer to hold the number of corners encountered
+	tmpStopWatch.start(); //start the stopwatch
+	int prevState = state;
+	
+	while(tmpStopWatch.read()<=timeLen || timeLen == -1) //if we want to move indefinetely or for a fixed period of time
+	{
+		//read the output from the chip
+		state = rlink.request(READ_PORT_5);
+		
+		// move straight feedback from line followers
+		if(state==LFSTATE_WWB)
+		{
+			//move forwards
+			rlink.command(BOTH_MOTORS_GO_OPPOSITE, DEFAULT_SPEED);
+		}
+		else if(state==LFSTATE_BWW)
+		{
+			//turn a bit to the right
+			//speed down the left wheel
+			rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES + DEFAULT_SPEED);
+			rlink.command(MOTOR_RIGHT_GO, DEFAULT_SPEED*0.8);
+		}
+		else if(state==LFSTATE_BWB)
+		{
+			//turn a small bit to the right
+			//speed down the left wheel
+			rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES + DEFAULT_SPEED);
+			rlink.command(MOTOR_RIGHT_GO, DEFAULT_SPEED*0.9);
+			
+		}
+		else if(state==LFSTATE_WBB)
+		{
+			//turn a small bit to the left
+			//speed down right wheel
+			rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES+DEFAULT_SPEED*0.8);
+			rlink.command(MOTOR_RIGHT_GO, DEFAULT_SPEED);
+		}
+		else if(state==LFSTATE_BBB)
+		{
+			//turn a bit to the left
+			//speed down right wheel
+			rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES+DEFAULT_SPEED*0.6);
+			rlink.command(MOTOR_RIGHT_GO, DEFAULT_SPEED);
+		}
+		
+		// store previous state
+		prevState=state;
+	}
+}
+
 //turn left move the centre to the junction and make a rotation about the center
 void turnLeftFull(int nCross)
 {
@@ -273,3 +326,7 @@ void turnRighBackup()
 	}
 }
 
+void stopMovement()
+{
+	rlink.command(BOTH_MOTORS_GO_SAME, 0);
+}

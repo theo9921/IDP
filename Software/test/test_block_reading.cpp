@@ -5,12 +5,20 @@
 */
 
 #include <iostream>
+#include <cmath>
 using namespace std;
 #include "../modules/parameters.h"
 
-robot_link rlink; 
+//robot_link rlink; 
 stopwatch timer; 
-#define LEN 100
+#define LEN 200
+
+float percentageError(int targetValue, int actualValue)
+{
+	//cout << targetValue << " ---> " << actualValue << endl;
+	//cout << abs(actualValue - targetValue) << endl;
+	return abs(actualValue - targetValue)*100/targetValue;
+}
 
 int main()
 {
@@ -101,6 +109,32 @@ int main()
 		
 		// output normalized
 		cout << "w: " << white-none << " r: " << red-none << " b: " << blue-none << endl;
+		//Green 113, 15, 85
+		if((percentageError(113, white-none)<=10) && (percentageError(15, red-none)<=40) && (percentageError(85, blue-none)<=50))
+		{
+			cout << "It is a Green Block" << endl;
+		}
+		//Wood 153, 44, 136
+		if((percentageError(153, white-none)<=10) && (percentageError(44, red-none)<=40) && (percentageError(136, blue-none)<=50))
+		{
+			cout << "It is a Wooden Block" << endl;
+		}
+		
+		//transparent 90, 5, 33 most unstable
+		if((percentageError(90, white-none)<=10) && (percentageError(33, blue-none)<=50))
+		{
+			cout << "It is a Trasnsparent Block" << endl;
+		}
+		//red 120, 28, 63
+		if((percentageError(120, white-none)<=10) && (percentageError(28, red-none)<=40) && (percentageError(63, blue-none)<=50))
+		{
+			cout << "It is a Red Block" << endl;
+		}
+		//white 128, 26, 125
+		else if((percentageError(128, white-none)<=10) && (percentageError(26, red-none)<=30) && (percentageError(125, blue-none)<=50))
+		{
+			cout << "It is a White Block" << endl;
+		}
 	}
 	
 	

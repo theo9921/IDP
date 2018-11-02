@@ -42,13 +42,28 @@ stopwatch motorwatch;
 #define LFSTATE_WWW 247 //11110111
 
 //define the default motor turning speed
-#define TURNING_SPEED 60
+#define TURNING_SPEED 65
 #define MOTOR_LEFT_GO MOTOR_2_GO
 #define MOTOR_RIGHT_GO MOTOR_1_GO
 
 
-//8-bit number with 3 LSB's being the sensors
-int state;
+void stopMovement()
+{
+	rlink.command(BOTH_MOTORS_GO_SAME, 0);
+}
+
+//function to 
+int getBlockState(int state)
+{
+	//store IR bit
+	return (state & 0b00001000) >> 3;
+}
+
+int getLineState(int state)
+{
+	//set 4th bit (BLOCK IR)to 0 to match the defined states
+	return (state & 0b00000111) | 0b11110000;
+}
 
 //function to move the robot straight for a period of time or indefinetely (with or without ignoring corners)
 void moveStraight(int timeLen, bool skipCornersWhileTurning )
@@ -56,12 +71,14 @@ void moveStraight(int timeLen, bool skipCornersWhileTurning )
 	stopwatch tmpStopWatch; //stopwatch to move straight
 	int cornerCounter = 0; //integer to hold the number of corners encountered
 	tmpStopWatch.start(); //start the stopwatch
-	int prevState = state;
+	int prevState = LFSTATE_BWB;
 	
 	while(tmpStopWatch.read()<=timeLen || timeLen == -1) //if we want to move indefinetely or for a fixed period of time
 	{
 		//read the output from the chip
-		state = rlink.request(READ_PORT_5);
+		int state = rlink.request(READ_PORT_5);
+		state = getLineState(state);
+		cout << state << endl;
 		
 		// corner detection and reaction
 		if(state!=LFSTATE_WWW && cornerCounter>2){
@@ -117,25 +134,87 @@ void moveStraight(int timeLen, bool skipCornersWhileTurning )
 		else
 		{
 			//go backwards until it reaches a known state
+			cout << "panic" <<endl;
 			rlink.command(BOTH_MOTORS_GO_OPPOSITE, REVERSE_STHRES + DEFAULT_SPEED);
 		}
-		
+	
 		// store previous state
 		prevState=state;
 	}
 }
 
-void moveStraightLittleBitRight(int timeLen)
+void moveBackSimple(int timeLen){
+	stopwatch tmpStopWatch; //stopwatch to move straight
+	tmpStopWatch.start(); //start the stopwatch
+	while(tmpStopWatch.read()<=timeLen){
+		rlink.command(BOTH_MOTORS_GO_OPPOSITE, REVERSE_STHRES + DEFAULT_SPEED);	
+	}
+}
+
+void moveBack(int timeLen){
+	stopwatch tmpStopWatch; //stopwatch to move straight
+	tmpStopWatch.start(); //start the stopwatch
+
+	while(tmpStopWatch.read()<=timeLen || timeLen == -1) //if we want to move indefinetely or for a fixed period of time
+	{
+		//read the output from the chip
+		int state = rlink.request(READ_PORT_5);
+		
+		// move straight feedback from line followers
+		if(state==LFSTATE_BWB)
+		{
+			//move backwards
+			rlink.command(BOTH_MOTORS_GO_OPPOSITE, REVERSE_STHRES + DEFAULT_SPEED);
+		}
+		else if(state==LFSTATE_BBW)
+		{
+			//move back towards right a bit
+			//speed down the left wheel
+			rlink.command(MOTOR_LEFT_GO, DEFAULT_SPEED*0.6);
+			rlink.command(MOTOR_RIGHT_GO, REVERSE_STHRES + DEFAULT_SPEED);
+		}
+		else if(state==LFSTATE_BWW)
+		{
+			//move back towards right a small bit
+			//speed down the left wheel
+			rlink.command(MOTOR_LEFT_GO, DEFAULT_SPEED*0.8);
+			rlink.command(MOTOR_RIGHT_GO, REVERSE_STHRES + DEFAULT_SPEED);
+			
+		}
+		else if(state==LFSTATE_WWB)
+		{
+			//turn a small bit to the left
+			//speed down right wheel
+			rlink.command(MOTOR_LEFT_GO, DEFAULT_SPEED);
+			rlink.command(MOTOR_RIGHT_GO, REVERSE_STHRES+DEFAULT_SPEED*0.9);
+		}
+		else if(state==LFSTATE_WBB)
+		{
+			//turn a big bit to the left
+			//speed down right wheel
+			rlink.command(MOTOR_LEFT_GO, DEFAULT_SPEED*0.6);
+			rlink.command(MOTOR_RIGHT_GO, REVERSE_STHRES+DEFAULT_SPEED*0.8);
+		}
+		else if(state==LFSTATE_BBB){
+			rlink.command(BOTH_MOTORS_GO_OPPOSITE, DEFAULT_SPEED);
+		}
+	
+	}
+}
+
+void moveStraightLittleBitRight(int timeLen, bool skipBlock)
 {
 	stopwatch tmpStopWatch; //stopwatch to move straight
-	int cornerCounter = 0; //integer to hold the number of corners encountered
 	tmpStopWatch.start(); //start the stopwatch
-	int prevState = state;
+	int prevBlockBit = 0;
 	
 	while(tmpStopWatch.read()<=timeLen || timeLen == -1) //if we want to move indefinetely or for a fixed period of time
 	{
 		//read the output from the chip
-		state = rlink.request(READ_PORT_5);
+		int state = rlink.request(READ_PORT_5);
+		
+		int blockBit = getBlockState(state);
+		state = getLineState(state);
 		
 		// move straight feedback from line followers
 		if(state==LFSTATE_WWB)
@@ -173,8 +252,13 @@ void moveStraightLittleBitRight(int timeLen)
 			rlink.command(MOTOR_RIGHT_GO, DEFAULT_SPEED);
 		}
 		
+		if(blockBit == 0 && prevBlockBit == 1 && skipBlock == 0)
+		{
+			stopMovement();
+			break;
+		}
 		// store previous state
-		prevState=state;
+		prevBlockBit = blockBit; 
 	}
 }
 
@@ -194,7 +278,8 @@ void turnLeftFull(int nCross)
 		rlink.command(MOTOR_LEFT_GO, TURNING_SPEED);
 		rlink.command(MOTOR_RIGHT_GO, TURNING_SPEED*0.5);
 		//read the output from the chip
-		state = rlink.request(READ_PORT_5);
+		int state = rlink.request(READ_PORT_5);
+		state = getLineState(state);
 		if(state==LFSTATE_WBB && prevState != state)
 		{
 			nWWB++; 
@@ -209,7 +294,7 @@ void turnLeftFull(int nCross)
 void turnRightFull(int nCross)
 {
 	motorwatch.start();
-	cout << "Turning Left" << endl;
+	cout << "Turning Right" << endl;
 	int prevState;
 	int nBWW = 0;
 	//move straight until robots centre is at the junction
@@ -221,7 +306,8 @@ void turnRightFull(int nCross)
 		rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES + TURNING_SPEED * 0.5);
 		rlink.command(MOTOR_RIGHT_GO, REVERSE_STHRES + TURNING_SPEED);
 		//read the output from the chip
-		state = rlink.request(READ_PORT_5);
+		int state = rlink.request(READ_PORT_5);
+		state = getLineState(state);
 		if(state==LFSTATE_BWW && prevState != state)
 		{
 			nBWW++; 
@@ -239,16 +325,15 @@ void turnLeft(int nCross)
 	cout << "Turning Left" << endl;
 	int prevState;
 	int nWWB = 0;
-	//move straight until robots centre is at the junction
-	moveStraight(1150, true);
 	
 	//turn to the left while ignoring as many lines as necessary until it aligns with the line
+	rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES + TURNING_SPEED*1/2);
+	rlink.command(MOTOR_RIGHT_GO, TURNING_SPEED*3.1/2);
 	while(true)
 	{
-		rlink.command(MOTOR_LEFT_GO, 0);
-		rlink.command(MOTOR_RIGHT_GO, TURNING_SPEED);
 		//read the output from the chip
-		state = rlink.request(READ_PORT_5);
+		int state = rlink.request(READ_PORT_5);
+		state = getLineState(state);
 		if(state==LFSTATE_WWB && prevState != state)
 		{
 			nWWB++; 
@@ -264,7 +349,7 @@ void turnRight(int nCross)
 {
 	motorwatch.start();
 	cout << "Turning Left" << endl;
-	int prevState;
+	int prevState = LFSTATE_BWB;
 	int nWWB = 0;
 	//move straight until robots centre is at the junction
 	moveStraight(1150, true);
@@ -275,7 +360,7 @@ void turnRight(int nCross)
 		rlink.command(MOTOR_LEFT_GO, REVERSE_STHRES + TURNING_SPEED);
 		rlink.command(MOTOR_RIGHT_GO, 0);
 		//read the output from the chip
-		state = rlink.request(READ_PORT_5);
+		int state = rlink.request(READ_PORT_5);
 		if(state==LFSTATE_WWB && prevState != state)
 		{
 			nWWB++; 
@@ -286,47 +371,3 @@ void turnRight(int nCross)
 	}
 }
 
-//Turning left by aligning wheels with the junction and rotating
-void turnLeftBackup()
-{
-	//turn left by moving forward a bit first
-	motorwatch.start();
-	cout << "Turning Left" << endl;
-	while(true)
-	{
-		//go forwards until wheels align with junction
-		while(motorwatch.read()<=4650)
-		{
-			rlink.command(BOTH_MOTORS_GO_OPPOSITE, DEFAULT_SPEED);
-		}
-		//rotate until the sensors read the BWB state (i.e aligned with line)
-		rlink.command(BOTH_MOTORS_GO_SAME, TURNING_SPEED);
-		//read the output from the chip
-		state = rlink.request(READ_PORT_5);
-		if(state==LFSTATE_WBB) break;
-	}
-}
-
-//Turning right by aligning wheels with the junction and rotating
-void turnRighBackup()
-{
-	//turn right by moving forward a bit first
-	motorwatch.start();
-	cout << "Turning Right" << endl;
-	while(true)
-	{
-		while(motorwatch.read()<=4650)
-		{
-			rlink.command(BOTH_MOTORS_GO_OPPOSITE, DEFAULT_SPEED);
-		}
-		rlink.command(BOTH_MOTORS_GO_SAME, REVERSE_STHRES + TURNING_SPEED);
-		//read the output from the chip
-		state = rlink.request(READ_PORT_5);
-		if(state==LFSTATE_BBW) break;
-	}
-}
-
-void stopMovement()
-{
-	rlink.command(BOTH_MOTORS_GO_SAME, 0);
-}

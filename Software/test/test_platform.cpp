@@ -27,6 +27,14 @@ int main()
 	}
 	while(true)
 	{
+		int key;
+		cin >> key
+		if(key == 24) rlink.command(MOTOR_3_GO, PLATFORM_SPEED);
+		else if(key == 25) rlink.command(MOTOR_3_GO, REVERSE_STHRES + PLATFORM_SPEED);
+		else break;
+	}
+	while(true)
+	{
 		cout << "moving motor" << endl;
 		watch.start();
 		

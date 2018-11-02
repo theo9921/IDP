@@ -7,6 +7,7 @@
 #include <iostream>
 using namespace std;
 #include "../modules/line_following.h"
+#include "../modules/handling.h"
 
 /*
 	MOTOR_2 is right wheel 
@@ -27,9 +28,11 @@ int main()
 		return -1;	
 	}
 	
-	testwatch.start();
+	//testwatch.start();
 	
-	moveStraightLittleBitRight(-1);
+	//moveBack(10000);
+	
+	/*moveStraightLittleBitRight(-1);
 	moveStraight(-1, false);
 	moveStraight(-1, false);
 	moveStraight(-1, false);
@@ -41,8 +44,13 @@ int main()
 	moveStraight(-1, false);
 	moveStraight(-1, false);
 	moveStraight(-1, false);
-	moveStraight(-1, false);
-
+	moveStraight(-1, false);*/
+	
+	while(true)
+	{
+		cout << "running" << endl;
+		cout << getLineState(rlink.request(READ_PORT_5)) <<endl;
+	}
 	return 0;
 }
 

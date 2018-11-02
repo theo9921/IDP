@@ -3,15 +3,16 @@ name=test_line_following
 base_path=/homes/tto21/idp_shared/tto21/IDP/Software/test
 make_in_base_path=true
 description=1B IDP
-run_cmd=./test_platform
+run_cmd=./test_block_reading
 
 [files]
-current_page=3
-FILE_NAME_0=537;C++;0;EUTF-8;1;1;0;%2Fhomes%2Ftto21%2Fidp_shared%2Ftto21%2FIDP%2FSoftware%2Ftest%2Ftest_line_following.cpp;0;4
-FILE_NAME_1=851;C++;0;EUTF-8;1;1;0;%2Fhomes%2Ftto21%2Fidp_shared%2Ftto21%2FIDP%2FSoftware%2Ftest%2Ftest_platform.cpp;0;4
-FILE_NAME_2=8876;C++;0;EUTF-8;1;1;0;%2Fhomes%2Ftto21%2Fidp_shared%2Ftto21%2FIDP%2FSoftware%2Fmodules%2Fline_following.h;0;4
-FILE_NAME_3=1055;C++;0;EUTF-8;1;1;0;%2Fhomes%2Ftto21%2Fidp_shared%2Ftto21%2FIDP%2FSoftware%2Fmain%2Fmain.cpp;0;4
-FILE_NAME_4=901;C++;0;EUTF-8;1;1;0;%2Fhomes%2Ftto21%2Fidp_shared%2Ftto21%2FIDP%2FSoftware%2Fmodules%2Fhandling.h;0;4
+current_page=5
+FILE_NAME_0=894;C++;0;EUTF-8;1;1;0;%2Fhomes%2Ftto21%2Fidp_shared%2Ftto21%2FIDP%2FSoftware%2Ftest%2Ftest_line_following.cpp;0;4
+FILE_NAME_1=204;C++;0;EUTF-8;1;1;0;%2Fhomes%2Ftto21%2Fidp_shared%2Ftto21%2FIDP%2FSoftware%2Ftest%2Ftest_platform.cpp;0;4
+FILE_NAME_2=7157;C++;0;EUTF-8;1;1;0;%2Fhomes%2Ftto21%2Fidp_shared%2Ftto21%2FIDP%2FSoftware%2Fmodules%2Fline_following.h;0;4
+FILE_NAME_3=722;C++;0;EUTF-8;1;1;0;%2Fhomes%2Ftto21%2Fidp_shared%2Ftto21%2FIDP%2FSoftware%2Fmain%2Fmain.cpp;0;4
+FILE_NAME_4=2420;C++;0;EUTF-8;1;1;0;%2Fhomes%2Ftto21%2Fidp_shared%2Ftto21%2FIDP%2FSoftware%2Fmodules%2Fhandling.h;0;4
+FILE_NAME_5=1304;C++;0;EUTF-8;1;1;0;%2Fhomes%2Ftto21%2Fidp_shared%2Ftto21%2FIDP%2FSoftware%2Ftest%2Ftest_block_reading.cpp;0;4
 
 [indentation]
 indent_width=4

@@ -17,6 +17,13 @@ using namespace std;
 #define KEY_DOWN 80
 #define KEY_ENTER 13
 
+//definitions for COLOUR Values
+#define COLOR_WHITE 1
+#define COLOR_RED 2
+#define COLOR_TRANS 3
+#define COLOR_WOOD 4
+#define COLOR_GREEN 5
+
 //number between 0 and 127 (128-255 for reverse)
 #define DEFAULT_SPEED 80
 //above that direction of motors will be reversed
@@ -66,38 +73,38 @@ int getBlockColour()
 	if((percentageError(113, white-none)<=10) && (percentageError(15, red-none)<=40) && (percentageError(85, blue-none)<=50))
 	{
 		cout << "It is a Green Block" << endl;
-		return 5;
+		return COLOR_GREEN;
 	}
 	//Wood 153, 44, 136
 	if((percentageError(153, white-none)<=10) && (percentageError(44, red-none)<=40) && (percentageError(136, blue-none)<=50))
 	{
 		cout << "It is a Wooden Block" << endl;
-		return 4;
+		return COLOR_WOOD;
 	}
 
 	//transparent 90, 5, 33 most unstable
 	if((percentageError(90, white-none)<=10) && (percentageError(33, blue-none)<=50))
 	{
 		cout << "It is a Trasnsparent Block" << endl;
-		return 3;
+		return COLOR_TRANS;
 	}
 	//red 120, 28, 63
 	if((percentageError(120, white-none)<=10) && (percentageError(28, red-none)<=40) && (percentageError(63, blue-none)<=50))
 	{
 		cout << "It is a Red Block" << endl;
-		return 2;
+		return COLOR_RED;
 	}
 	//white 128, 26, 125
 	if((percentageError(128, white-none)<=10) && (percentageError(26, red-none)<=30) && (percentageError(125, blue-none)<=50))
 	{
 		cout << "It is a White Block" << endl;
-		return 1;
+		return COLOR_WHITE;
 	}
 	else
 	{
 		cout << "Don't know what colour" << endl;
 		return 0;
-	}*/
+	}
 }
 //function to remotely control platform
 void controlPlatform()
@@ -106,23 +113,23 @@ void controlPlatform()
     while(1)
     {
         c = 0;
-		c = getch();
+	c = getch();
         if(c == KEY_UP) 
-		{
-			//move platform up
-			//rlink.command(MOTOR_3_GO, REVERSE_STHRES + PLATFORM_SPEED);
-			cout << "up" << endl;
-		}
-		else if(c == KEY_DOWN)
-		{
-			//move platform down
-			//rlink.command(MOTOR_3_GO, PLATFORM_SPEED);
-			cout << "down" << endl;
-		}
-		else if(c == KEY_ENTER)
-		{
-			break;	
-		}
+	{
+		//move platform up
+		//rlink.command(MOTOR_3_GO, REVERSE_STHRES + PLATFORM_SPEED);
+		cout << "up" << endl;
+	}
+	else if(c == KEY_DOWN)
+	{
+		//move platform down
+		//rlink.command(MOTOR_3_GO, PLATFORM_SPEED);
+		cout << "down" << endl;
+	}
+	else if(c == KEY_ENTER)
+	{
+		break;	
+	}
     }
 }
 
@@ -148,10 +155,8 @@ void movePlatform(int position)
 	*/
 }
 
-void scanCollect(int collectColour, int timeLen) //return the block type
+bool scanCollect(int lorry) //return the block type
 {
-	/*
-	moveStraightLittleBitRight(timeLen,true);
 	// stop all movement
 	stopMovement();
 
@@ -176,22 +181,53 @@ void scanCollect(int collectColour, int timeLen) //return the block type
 	sleep(1000);
 	//====ADDED===
 	
-	// whether to pick up the block or move back and retract arm
-	if((collectColour & colour) != 0){
-		rlink.command(WRITE_PORT_4, ACTUATORS_NOEXT);
-		cout << "collect" << endl;
-	}else{ // move back and retract the arm
-		moveBackSimple(moveStraightTime+50);
-		rlink.command(WRITE_PORT_4, ACTUATORS_NOEXT);
-		moveStraightLittleBitRight(moveStraightTime+50, true);
-		cout << "do not collect" << endl;
+	//if we want to pick that block pick it up
+	
+	//FOR LORRY 1
+	if(lorry == 1)
+	{
+		//If the brick is Red White or Transparent we can pick it up
+		if((colour==COLOR_RED) || (colour==COLOR_WHITE) || (colour==COLOR_TRANS))
+		{
+			rlink.command(WRITE_PORT_4, ACTUATORS_NOEXT);
+			cout << "collect" << endl;
+			return 0;
+		}
+		//else do not pick it up
+		else
+		{
+			moveBackSimple(moveStraightTime+50);
+			rlink.command(WRITE_PORT_4, ACTUATORS_NOEXT);
+			moveStraightLittleBitRight(moveStraightTime+50, true);
+			cout << "do not collect" << endl;
+			return 1;
+		}
 	}
-	*/
+	
+	//FOR LORRY 2
+	else if(lorry == 1)
+	{
+		//If it is Green Wood or Transparent pick it up
+		if((colour==COLOR_GREEN) || (colour==COLOR_WOOD) || (colour==COLOR_TRANS))
+		{
+			rlink.command(WRITE_PORT_4, ACTUATORS_NOEXT);
+			cout << "collect" << endl;
+			return 0;
+		}
+		//else not pick it up
+		else
+		{
+			moveBackSimple(moveStraightTime+50);
+			rlink.command(WRITE_PORT_4, ACTUATORS_NOEXT);
+			moveStraightLittleBitRight(moveStraightTime+50, true);
+			cout << "do not collect" << endl;
+			return 1;
+		}
+	}
 }  
 
 int main()
 {
-	/*
 	//Initialize robot link
 	#ifdef __arm__  //setup for local hardware
 		if (!rlink.initialise()){} 
@@ -203,10 +239,8 @@ int main()
 		}
 	#endif
 	
-	*/
 	//Start by manually setting up the platform
-	
-	//controlPlatform();
+	controlPlatform();
 	//initialize arrays to hold non-collected blocks at C1 and C2
 	int blocksC1 [5] = {1, 1, 1, 1, 1};
 	int blocksC2 [5] = {1, 1, 1, 1, 1};
@@ -214,27 +248,129 @@ int main()
 	//Initialize 2d array of 5 rows and 8 columns
 	//All 1's represent real junctions and all 0's imaginary ones
 	int mapArr[5][8] =
-    {
+    	{
         {1,1,1,1,1,1,1,1},
         {1,1,1,1,1,1,1,1},
         {0,0,0,0,0,0,1,1},
         {1,1,1,1,0,0,1,1},
         {1,1,1,1,0,0,1,1}
-    };
-    
-    //set the bit sequence to send
-	const int const_bit = 0x20; //set to 00100000
-	const int led_bits_ref = 0x1F; //set to 00011111
-	int actuator_bits = 0x80; // set to 10000000
-	int led_bits; //declare value to hold actual led_bit
-	int send_bits; //declare value to hold the bit sequence to send
+    	};
 	
-	send_bits = ((led_bits ^ led_bits_ref) ^ actuator_bits) ^ const_bit;
+	//get into position along C2
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	turnLeftFull(0);
 	
-	bitset<8> state (37);
-	cout << state <<endl;
-	state[8]=1;
-	cout << state <<endl;
+	//move to the first block and stop
+	moveStraight(-1, false);
+	stopMovement();
 	
+	// move back a little
+	moveBackSimple(500);
 	
+	//start scanning all the boxes in C2
+	blocksC2[0] = scanCollect(1);
+	blocksC2[1] = scanCollect(1);
+	blocksC2[2] = scanCollect(1);
+	blocksC2[3] = scanCollect(1);
+	blocksC2[4] = scanCollect(1);
+
+	// go to the first lorry and dump
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	turnLeftFull(0);
+
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	turnLeftFull(0);
+
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	turnLeftFull(0);
+
+	// drop boxes
+	drop();
+
+	// go back to the start of C2
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	turnRightFull(0);
+
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	turnLeftFull(0);
+
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	turnLeftFull(0);
+
+	// reset the platform level to the lowest
+	rlink.command(MOTOR_3_GO, PLATFORM_SPEED);
+	sleep(8000);
+	rlink.command(MOTOR_3_GO, 0);
+
+	// go to the initial position and start the second round
+	// collect the ramaining C2 boxes to dump on lorry 2
+	int currentPos=0;
+	for(int i=0; i<=4; i++)
+	{
+		if(blocksC2[i]==0)
+		{
+			//move to the first block and stop
+			for(int moves=1; moves<=(i-currentPos+1)); moves++)
+			{
+				moveStraight(-1, false);
+			}
+			stopMovement();
+			// move back a little
+			moveBackSimple(500);
+			blocksC2[i] = scanCollect(2);
+		}
+		
+		currentPos=i;
+	}
+	//go past C2
+	for(int j=0; j<=(4-currentPos); i++)
+	{
+		moveStraight(-1, false);
+	}
+	// go to lorry 2 and dump
+	turnLeftFull(0);
+
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	turnLeftFull(0);
+
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	turnLeftFull(0);
+
+	// drop boxes
+	drop();
+
+	// go back to start
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+	turnRightFull(0);
+
+	moveStraight(-1, false);
+	moveStraight(-1, false);
+
+	stopMovement();
+
+	cout << "completed round" << endl;
+
+	return 0;
+	//INSERT STRATEGY AND OVERALL FUNCTION
 }
+	
